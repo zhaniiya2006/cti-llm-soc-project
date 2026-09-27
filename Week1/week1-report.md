@@ -355,7 +355,7 @@ Investigation / Response
 
 ---
 
-10. Week 1 Results
+## 10. Week 1 Results
 
 During Week 1, our group completed the following tasks:
 
@@ -371,7 +371,7 @@ The results of Week 1 will be used as the solid foundation for the next stage of
 
 ---
 
-11. Planned Development for Week 2
+## 11. Planned Development for Week 2
 
 In Week 2, the project will move from basic CTI concepts to the data collection process.
 
@@ -400,14 +400,14 @@ Data Processing
       v
 Threat Intelligence Analysis
 
-12. Conclusion
+## 12. Conclusion
 
 Week 1 established the theoretical foundation for our Cyber Threat Intelligence project.
 We studied the main concepts of CTI, created a glossary, classified common cyber threats and identified different intelligence sources. We also reviewed MITRE ATT&CK and the ENISA Threat Landscape 2026.
 The main conclusion from Week 1 is that effective SOC analysis requires both technical indicators and contextual information about threats. This provides a foundation for our project because an LLM can potentially assist analysts in processing, summarising and contextualising large amounts of CTI data.
 In Week 2, we will continue the project by focusing on OSINT data collection using Shodan, VirusTotal and Maltego.
 
-13. References
+## 13. References
 ENISA. (2026). ENISA Threat Landscape 2026. European Union Agency for Cybersecurity.
 MITRE. (2026). MITRE ATT&CK. The MITRE Corporation.
 Recorded Future. (2023). The Threat Intelligence Handbook: Moving Toward a Security Intelligence Program (2nd ed.).
