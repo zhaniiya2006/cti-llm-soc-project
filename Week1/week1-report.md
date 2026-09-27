@@ -354,20 +354,19 @@ Investigation / Response
 ---
 
 ---
-
 ## 10. Week 1 Results
 
 During Week 1, our group completed the following tasks:
 
-- created a glossary of key CTI concepts;
-- classified common cyber threats;
-- identified different CTI sources;
-- reviewed MITRE ATT&CK concepts;
-- reviewed the ENISA Threat Landscape 2026;
-- connected CTI fundamentals with our LLM-assisted SOC project;
-- designed an initial CTI-to-SOC workflow.
+* Created a glossary of key Cyber Threat Intelligence (CTI) concepts.
+* Classified common cyber threats.
+* Identified different CTI sources.
+* Reviewed the MITRE ATT&CK framework and its main concepts.
+* Reviewed the ENISA Threat Landscape 2026.
+* Connected CTI fundamentals with our LLM-assisted SOC project.
+* Designed an initial CTI-to-SOC workflow.
 
-The results of Week 1 will be used as the solid foundation for the next stage of the project.
+The results of Week 1 will be used as a foundation for the next stage of the project.
 
 ---
 
@@ -375,13 +374,13 @@ The results of Week 1 will be used as the solid foundation for the next stage of
 
 In Week 2, the project will move from basic CTI concepts to the data collection process.
 
-We plan to investigate OSINT collection using:
+We plan to investigate OSINT (Open-Source Intelligence) collection using the following tools:
 
-- Shodan;
-- VirusTotal;
-- Maltego.
+* Shodan
+* VirusTotal
+* Maltego
 
-The collected information will then be organised and prepared for further processing.
+The collected information will then be organised and prepared for further processing and analysis.
 
 The planned workflow for Week 2 is:
 
@@ -392,23 +391,35 @@ OSINT Sources
 Data Collection
       |
       v
-Indicators of Compromise
+Indicators of Compromise (IoCs)
       |
       v
 Data Processing
       |
       v
 Threat Intelligence Analysis
+```
+
+---
 
 ## 12. Conclusion
 
 Week 1 established the theoretical foundation for our Cyber Threat Intelligence project.
-We studied the main concepts of CTI, created a glossary, classified common cyber threats and identified different intelligence sources. We also reviewed MITRE ATT&CK and the ENISA Threat Landscape 2026.
-The main conclusion from Week 1 is that effective SOC analysis requires both technical indicators and contextual information about threats. This provides a foundation for our project because an LLM can potentially assist analysts in processing, summarising and contextualising large amounts of CTI data.
-In Week 2, we will continue the project by focusing on OSINT data collection using Shodan, VirusTotal and Maltego.
+
+We studied the main concepts of CTI, created a glossary, classified common cyber threats, and identified different intelligence sources. We also reviewed the MITRE ATT&CK framework and the ENISA Threat Landscape 2026.
+
+The main conclusion from Week 1 is that effective SOC analysis requires both technical indicators and contextual information about threats. This provides an important foundation for our project because an LLM can potentially assist security analysts in processing, summarising, and contextualising large amounts of CTI data.
+
+In Week 2, we will continue the project by focusing on OSINT data collection using Shodan, VirusTotal, and Maltego.
+
+---
 
 ## 13. References
-ENISA. (2026). ENISA Threat Landscape 2026. European Union Agency for Cybersecurity.
-MITRE. (2026). MITRE ATT&CK. The MITRE Corporation.
-Recorded Future. (2023). The Threat Intelligence Handbook: Moving Toward a Security Intelligence Program (2nd ed.).
-SANS Institute. (2026). SANS Cyber Threat Intelligence Summit. SANS Institute.
+
+1. ENISA. (2026). *ENISA Threat Landscape 2026*. European Union Agency for Cybersecurity.
+
+2. MITRE. (2026). *MITRE ATT&CK*. The MITRE Corporation.
+
+3. Recorded Future. (2023). *The Threat Intelligence Handbook: Moving Toward a Security Intelligence Program* (2nd ed.).
+
+4. SANS Institute. (2026). *SANS Cyber Threat Intelligence Summit*. SANS Institute.
