@@ -92,7 +92,7 @@ SANS provides cybersecurity education and security research materials. Its resou
 
 **Figure 2. SANS OSINT Resource**
 
-![SANS OSINT](images/sans-osint.png)
+![Shodan Search](/week2/images/shodan-search.png)
 
 SANS materials are useful as a supporting knowledge source because they provide cybersecurity-related information that can help analysts understand and interpret collected data.
 
