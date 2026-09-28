@@ -78,7 +78,7 @@ For example, an analyst investigating a domain or IP address can use OSINT resou
 
 **Figure 1. OSINT Framework**
 
-![OSINT Framework](week2/images/osint-framework.png)
+![OSINT Framework](week2/week2/images/osint-framework.png)
 
 The OSINT Framework was useful for understanding that OSINT is not one single tool. Instead, it is a collection of different sources and techniques that can be used depending on the intelligence question.
 
