@@ -135,7 +135,7 @@ The Shodan results included information such as:
 
 **Figure 3. Shodan Search**
 
-![Shodan Search](images/shodan-search.png)
+![Shodan Search](../images/shodan-search.png)
 
 The search produced a large number of results. These results should not be interpreted as evidence that the listed IP addresses are malicious.
 
