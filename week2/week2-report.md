@@ -167,7 +167,7 @@ The VirusTotal result showed:
 
 **Figure 4. VirusTotal Search**
 
-![VirusTotal Search](images/virustotal-search.png)
+![VirusTotal Search](week2/images/virustotal-search.png)
 
 The result did not indicate that the domain was malicious. VirusTotal showed `0/91` detections in the displayed analysis.
 
@@ -198,7 +198,7 @@ The following entities were manually added to the Maltego graph:
 
 **Figure 5. Maltego Investigation Graph**
 
-![Maltego Graph](images/maltego-graph.png)
+![Maltego Graph](week2/images/maltego-graph.png)
 
 The entities represent different types of technical information that can be considered during an investigation.
 
@@ -308,7 +308,7 @@ The relationship between the sources can be represented as follows:
 
 **Figure 6. Data Source Mapping**
 
-![Data Source Mapping](images/data-source-mapping.png)
+![Data Source Mapping](week2/images/data-source-mapping.png)
 
 The diagram demonstrates how information from different sources can eventually be combined for security analysis.
 
