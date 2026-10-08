@@ -1,0 +1,44 @@
+{
+  "Event": {
+    "info": "Week 3 CTI data processing lab - benign synthetic indicators",
+    "uuid": "754a3443-339f-5068-8f10-480160cb8331",
+    "date": "2026-10-08",
+    "threat_level_id": "4",
+    "analysis": "0",
+    "distribution": "0",
+    "Attribute": [
+      {
+        "uuid": "81cfe2a9-89c8-5b9d-bd80-1ac356366772",
+        "type": "domain",
+        "category": "Network activity",
+        "value": "example.com",
+        "to_ids": false,
+        "comment": "Reserved example domain; training data only Source: Week 2 OSINT lab; confidence: 50/100; first seen: 2026-10-08T09:00:00Z"
+      },
+      {
+        "uuid": "67bbaf61-87a7-5a7a-9b6d-8107e1792e2f",
+        "type": "ip-dst",
+        "category": "Network activity",
+        "value": "198.51.100.42",
+        "to_ids": false,
+        "comment": "RFC 5737 TEST-NET-2 address; do not treat as malicious Source: Documentation range; confidence: 20/100; first seen: 2026-10-08T09:10:00Z"
+      },
+      {
+        "uuid": "cafc537a-34b7-56f7-bab0-58ac7cd00de9",
+        "type": "url",
+        "category": "Network activity",
+        "value": "https://example.com/login?session=demo",
+        "to_ids": false,
+        "comment": "URL on reserved example domain Source: Training example; confidence: 20/100; first seen: 2026-10-08T09:15:00Z"
+      },
+      {
+        "uuid": "328fb194-8b8f-5edd-b2e6-11f1c24d2e9e",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "to_ids": false,
+        "comment": "SHA-256 of an empty file; benign test value Source: Local calculation; confidence: 10/100; first seen: 2026-10-08T09:20:00Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "input_records": 8,
+  "valid_unique_indicators": 4,
+  "duplicates_removed": 2,
+  "invalid_records_filtered": 2,
+  "rejected_records": [
+    {
+      "record_id": "LAB-007",
+      "reason": "'999.10.10.5' does not appear to be an IPv4 or IPv6 address"
+    },
+    {
+      "record_id": "LAB-008",
+      "reason": "invalid domain syntax"
+    }
+  ],
+  "indicator_counts_by_type": {
+    "domain": 1,
+    "ip-dst": 1,
+    "sha256": 1,
+    "url": 1
+  },
+  "safety": "Training-only indicators. MISP to_ids is false for every attribute.",
+  "misp_event_uuid": "754a3443-339f-5068-8f10-480160cb8331"
+}
