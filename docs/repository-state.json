@@ -28,5 +28,16 @@
   ],
   "publication_check": "Git push dry-run refused with HTTP 403: authenticated shlauze has no write permission to zhaniiya2006 repository",
   "local_correction_branch": "codex/audit-weeks1-4",
-  "scope": "Read-only remote snapshot and publication-access check; corrected contents remain local unless separately published"
+  "scope": "Historical initial remote snapshot and publication-access check; see publication_update for the later successful publication",
+  "publication_update": {
+    "verified_at_utc": "2026-10-08T18:49:05Z",
+    "account": "zhaniiya2006",
+    "branch": "main",
+    "verified_commit": "7c9b48fff92497c9cd5ce33f58095868186a963f",
+    "method": "Normal fast-forward Git push, followed by fetch and exact local/remote comparison",
+    "tracked_files": 46,
+    "images": 9,
+    "workflow_run": "https://github.com/zhaniiya2006/cti-llm-soc-project/actions/runs/37827090023",
+    "workflow_conclusion": "success"
+  }
 }
