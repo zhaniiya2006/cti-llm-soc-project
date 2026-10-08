@@ -1,1 +1,0 @@
-# cti-llm-soc-project
