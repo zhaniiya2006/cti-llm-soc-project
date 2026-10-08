@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Events>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="PowerShell" />
+      <EventID Qualifiers="0">400</EventID>
+      <Version>0</Version>
+      <Level>4</Level>
+      <Task>4</Task>
+      <Opcode>0</Opcode>
+      <Keywords>0x80000000000000</Keywords>
+      <TimeCreated SystemTime="2026-10-08T19:02:37.8668051Z" />
+      <EventRecordID>6567</EventRecordID>
+      <Correlation />
+      <Execution ProcessID="10292" ThreadID="0" />
+      <Channel>Windows PowerShell</Channel>
+      <Computer>CTI-LAB-HOST</Computer>
+      <Security />
+    </System>
+    <EventData>
+      <Data>Available</Data>
+      <Data>None</Data>
+      <Data>	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.26100.9444
+	HostId=cbbe2ba8-d451-4100-9245-479c5d9b19a9
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -Command Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-plain'
+	EngineVersion=5.1.26100.9444
+	RunspaceId=4f6dd70f-592b-4823-9aac-6b1323657f5f
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="PowerShell" />
+      <EventID Qualifiers="0">400</EventID>
+      <Version>0</Version>
+      <Level>4</Level>
+      <Task>4</Task>
+      <Opcode>0</Opcode>
+      <Keywords>0x80000000000000</Keywords>
+      <TimeCreated SystemTime="2026-10-08T19:02:39.9503928Z" />
+      <EventRecordID>6575</EventRecordID>
+      <Correlation />
+      <Execution ProcessID="8720" ThreadID="0" />
+      <Channel>Windows PowerShell</Channel>
+      <Computer>CTI-LAB-HOST</Computer>
+      <Security />
+    </System>
+    <EventData>
+      <Data>Available</Data>
+      <Data>None</Data>
+      <Data>	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.26100.9444
+	HostId=f35ed059-6b6d-4bae-a77a-5604dea5e5e0
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAFcANQAtADIAZQA2ADAAOAA0AGUAYwBiADUANAAwADQANwA0ADkAYQA0ADQAMQAzADgAOQAyAGYAZQAzADIAYQA5AGQAYQAtAGUAbgBjAG8AZABlAGQAJwA=
+	EngineVersion=5.1.26100.9444
+	RunspaceId=b9ac2e5e-ca88-4455-a21f-3e529184920b
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="PowerShell" />
+      <EventID Qualifiers="0">400</EventID>
+      <Version>0</Version>
+      <Level>4</Level>
+      <Task>4</Task>
+      <Opcode>0</Opcode>
+      <Keywords>0x80000000000000</Keywords>
+      <TimeCreated SystemTime="2026-10-08T19:02:41.5529113Z" />
+      <EventRecordID>6583</EventRecordID>
+      <Correlation />
+      <Execution ProcessID="22840" ThreadID="0" />
+      <Channel>Windows PowerShell</Channel>
+      <Computer>CTI-LAB-HOST</Computer>
+      <Security />
+    </System>
+    <EventData>
+      <Data>Available</Data>
+      <Data>None</Data>
+      <Data>	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.26100.9444
+	HostId=5fb609b8-aa44-46a4-af48-d32e481453a6
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -Command Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-hidden'
+	EngineVersion=5.1.26100.9444
+	RunspaceId=8b6dfe14-c942-4685-8725-0d9970720114
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="PowerShell" />
+      <EventID Qualifiers="0">400</EventID>
+      <Version>0</Version>
+      <Level>4</Level>
+      <Task>4</Task>
+      <Opcode>0</Opcode>
+      <Keywords>0x80000000000000</Keywords>
+      <TimeCreated SystemTime="2026-10-08T19:02:42.6323570Z" />
+      <EventRecordID>6591</EventRecordID>
+      <Correlation />
+      <Execution ProcessID="36600" ThreadID="0" />
+      <Channel>Windows PowerShell</Channel>
+      <Computer>CTI-LAB-HOST</Computer>
+      <Security />
+    </System>
+    <EventData>
+      <Data>Available</Data>
+      <Data>None</Data>
+      <Data>	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.26100.9444
+	HostId=f1cd5f28-ca52-4e69-85f5-8f4652bbb484
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAFcANQAtADIAZQA2ADAAOAA0AGUAYwBiADUANAAwADQANwA0ADkAYQA0ADQAMQAzADgAOQAyAGYAZQAzADIAYQA5AGQAYQAtAGUAbgBjAG8AZABlAGQAXwBoAGkAZABkAGUAbgAnAA==
+	EngineVersion=5.1.26100.9444
+	RunspaceId=c1c46fa3-6502-491d-ade0-6bcf91f3b8cf
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=</Data>
+    </EventData>
+  </Event>
+</Events>

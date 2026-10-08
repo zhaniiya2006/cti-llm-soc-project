@@ -1,0 +1,7 @@
+source,relation,target,record_type,ttl_seconds,observed_at_utc,evidence
+example.com,DNS A answer,104.20.23.154,A,300,2026-10-08T19:00:16.451709+00:00,example-com-a.json
+example.com,DNS A answer,172.66.147.243,A,300,2026-10-08T19:00:16.451709+00:00,example-com-a.json
+example.com,DNS NS answer,hera.ns.cloudflare.com,NS,13151,2026-10-08T19:00:16.807902+00:00,example-com-ns.json
+example.com,DNS NS answer,elliott.ns.cloudflare.com,NS,13151,2026-10-08T19:00:16.807902+00:00,example-com-ns.json
+example.com,DNS AAAA answer,2606:4700:10::6814:179a,AAAA,287,2026-10-08T19:00:17.496170+00:00,example-com-aaaa.json
+example.com,DNS AAAA answer,2606:4700:10::ac42:93f3,AAAA,287,2026-10-08T19:00:17.496170+00:00,example-com-aaaa.json

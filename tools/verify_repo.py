@@ -22,6 +22,9 @@ ROLES = {
     "week3/images/01-processing-results.png": "illustration: generated from checked processing outputs",
     "week3/images/02-misp-import-payload.png": "illustration: MISP JSON summary, not a live capture",
     "week3/images/03-misp-event-live.jpg": "interface screenshot: actual local MISP Event 1 view",
+    "week5/images/01-baseline-live.jpg": "interface screenshot: actual Kibana baseline query, 4 genuine lab events",
+    "week5/images/02-encoded-live.jpg": "interface screenshot: actual Kibana EncodedCommand query, 2 benign review candidates",
+    "week5/images/03-encoded-hidden-live.jpg": "interface screenshot: actual Kibana combined query, 1 benign review candidate",
 }
 
 
@@ -106,6 +109,34 @@ def main():
     enriched = json.loads((REPO / "week3/data/enrichment-correlation.json").read_text())
     if len(enriched["records"]) != 4 or len(enriched["relationships"]) != 1:
         failures.append("Enrichment/correlation sample output is incomplete")
+
+    dns_directory = REPO / "week2/data/dns"
+    dns_manifest = json.loads((dns_directory / "collection-manifest.json").read_text())
+    dns_edges = []
+    dns_types = {"A": 1, "NS": 2, "MX": 15, "AAAA": 28}
+    for observation in dns_manifest["observations"]:
+        raw_path = dns_directory / observation["raw_response"]
+        raw = raw_path.read_bytes()
+        answer = json.loads(raw)
+        if hashlib.sha256(raw).hexdigest() != observation["sha256"] or answer.get("Answer", []) != observation["answers"] or answer.get("Status") != 0:
+            failures.append(f"DNS provenance mismatch: {raw_path.name}")
+        for item in observation["answers"]:
+            kind = observation["record_type"]
+            if item["type"] != dns_types[kind] or item["name"].rstrip(".").lower() != "example.com":
+                continue
+            target = item["data"]
+            relation = "DNS " + kind + " answer"
+            if kind == "NS":
+                target = target.rstrip(".")
+            elif kind == "MX":
+                preference, target = target.split(maxsplit=1)
+                if target == ".":
+                    continue
+                target = target.rstrip(".")
+                relation += f" (preference {preference})"
+            dns_edges.append({"source": "example.com", "relation": relation, "target": target, "record_type": kind, "ttl_seconds": str(item["TTL"]), "observed_at_utc": observation["observed_at_utc"], "evidence": observation["raw_response"]})
+    if contents(dns_directory / "relationships.csv") != dns_edges or len(dns_edges) != dns_manifest["verified_relationships"]:
+        failures.append("DNS relationships do not agree with raw source answers")
 
     images = {p.relative_to(REPO).as_posix() for p in REPO.rglob("*") if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".webp"} and ".git" not in p.parts}
     if images != set(ROLES):

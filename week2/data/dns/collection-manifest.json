@@ -1,0 +1,115 @@
+{
+  "domain": "example.com",
+  "resolver": "Google Public DNS over HTTPS",
+  "method_documentation": "https://developers.google.com/speed/public-dns/docs/doh/json",
+  "observations": [
+    {
+      "record_type": "A",
+      "url": "https://dns.google/resolve?name=example.com&type=A&edns_client_subnet=0.0.0.0%2F0&do=true",
+      "observed_at_utc": "2026-10-08T19:00:16.451709+00:00",
+      "raw_response": "example-com-a.json",
+      "sha256": "7bcf219babf4006fd7896e5422b0977f43a488e1d4eaea4d84fff9f5b1c5259e",
+      "dnssec_authenticated_data": true,
+      "answers": [
+        {
+          "name": "example.com.",
+          "type": 1,
+          "TTL": 300,
+          "data": "104.20.23.154"
+        },
+        {
+          "name": "example.com.",
+          "type": 1,
+          "TTL": 300,
+          "data": "172.66.147.243"
+        },
+        {
+          "name": "example.com.",
+          "type": 46,
+          "TTL": 300,
+          "data": "a 13 2 300 1791576017 1791396017 34505 example.com. n1/RAfLhRzEOvktxlVIj1hcfkp/o0EKWyt1CyQV5IHmmRgmCIYAP/qCqkNAORGV+nRqIBOfIgRBJbHvvKNXf4w=="
+        }
+      ]
+    },
+    {
+      "record_type": "NS",
+      "url": "https://dns.google/resolve?name=example.com&type=NS&edns_client_subnet=0.0.0.0%2F0&do=true",
+      "observed_at_utc": "2026-10-08T19:00:16.807902+00:00",
+      "raw_response": "example-com-ns.json",
+      "sha256": "c6aef70b3262795a047a6693a4585b00b23f7b6faeead020762ffe30629ac6eb",
+      "dnssec_authenticated_data": true,
+      "answers": [
+        {
+          "name": "example.com.",
+          "type": 2,
+          "TTL": 13151,
+          "data": "hera.ns.cloudflare.com."
+        },
+        {
+          "name": "example.com.",
+          "type": 2,
+          "TTL": 13151,
+          "data": "elliott.ns.cloudflare.com."
+        },
+        {
+          "name": "example.com.",
+          "type": 46,
+          "TTL": 13151,
+          "data": "ns 13 2 86400 1791567569 1791387569 34505 example.com. BuCZPUZoeQ62NhkFoGNOyhPI1BpfDpfkxEg/6fuK5nSEc3+DZYMBtR63q6z4oQ1a+E7jsyDno66OOaUEYm12DA=="
+        }
+      ]
+    },
+    {
+      "record_type": "MX",
+      "url": "https://dns.google/resolve?name=example.com&type=MX&edns_client_subnet=0.0.0.0%2F0&do=true",
+      "observed_at_utc": "2026-10-08T19:00:17.219357+00:00",
+      "raw_response": "example-com-mx.json",
+      "sha256": "761a8bd9056276cdc05c58d8c709dac11422f0388bd259767d8d5385897236a5",
+      "dnssec_authenticated_data": true,
+      "answers": [
+        {
+          "name": "example.com.",
+          "type": 15,
+          "TTL": 234,
+          "data": "0 ."
+        },
+        {
+          "name": "example.com.",
+          "type": 46,
+          "TTL": 234,
+          "data": "mx 13 2 300 1791575952 1791395952 34505 example.com. SrOc1Ww3gtO7UWLcwBkHqCkzd8Jvf8iIOs8OCTmFabrhXWwm4gGhTVtyKNzCIoHfLmFZWXDOD0Z03IsYQhjGUg=="
+        }
+      ]
+    },
+    {
+      "record_type": "AAAA",
+      "url": "https://dns.google/resolve?name=example.com&type=AAAA&edns_client_subnet=0.0.0.0%2F0&do=true",
+      "observed_at_utc": "2026-10-08T19:00:17.496170+00:00",
+      "raw_response": "example-com-aaaa.json",
+      "sha256": "4d7347eafc7b0f79b821e20b06b7e5ef163b5f64354d0208473e1e16fbb1b1e6",
+      "dnssec_authenticated_data": true,
+      "answers": [
+        {
+          "name": "example.com.",
+          "type": 28,
+          "TTL": 287,
+          "data": "2606:4700:10::6814:179a"
+        },
+        {
+          "name": "example.com.",
+          "type": 28,
+          "TTL": 287,
+          "data": "2606:4700:10::ac42:93f3"
+        },
+        {
+          "name": "example.com.",
+          "type": 46,
+          "TTL": 287,
+          "data": "aaaa 13 2 300 1791576005 1791396005 34505 example.com. hwvbQ4Ry+vq/VGVpYVq05seiW61yt0rGxAycQcj1xDEfiagFHtw9TjyLX+PP/Nab82D+88M2Xt+rteK3xBhmKg=="
+        }
+      ]
+    }
+  ],
+  "verified_relationships": 6,
+  "scope": "Live DNS collection; not a Maltego client execution or ownership/reputation verdict"
+}

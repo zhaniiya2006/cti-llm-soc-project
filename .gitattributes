@@ -1,0 +1,6 @@
+# Preserve bytes of hashed execution evidence and the exact collector/query inputs.
+week5/data/windows-events.xml -text whitespace=cr-at-eol
+week5/data/powershell-events.jsonl -text
+week5/collect_lab_events.ps1 -text
+week5/hunt-queries.json -text
+week2/data/dns/example-com-*.json -text

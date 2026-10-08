@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-10-08T19:07:20.2017885Z",
+  "kibana_version": "9.5.5",
+  "kibana_version_source": "docker exec threat-hunting-week5-kibana-1 cat /usr/share/kibana/package.json",
+  "elasticsearch_image": "elasticsearch:9.5.5",
+  "kibana_image": "kibana:9.5.5",
+  "host_bindings": [
+    "127.0.0.1:9200",
+    "127.0.0.1:5601"
+  ],
+  "deployment_scope": "Existing isolated local training containers restarted; their authentication configuration was not changed"
+}

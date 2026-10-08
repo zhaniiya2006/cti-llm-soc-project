@@ -1,0 +1,80 @@
+{
+  "run_id": "2e6084ecb5404749a4413892fe32a9da",
+  "started_utc": "2026-10-08T19:02:37.2014596Z",
+  "finished_utc": "2026-10-08T19:02:43.1722645Z",
+  "collected_utc": "2026-10-08T19:02:43.9684330Z",
+  "event_count": 4,
+  "collector_version": "7.6.5",
+  "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "collector_sha256": "266e025e9289aaa50d74076230b30f700fca2c9b3f0e79ba3c65ac18bbf2504e",
+  "cases": [
+    {
+      "case_id": "plain",
+      "pid": 10292,
+      "exit_code": 0,
+      "payload": "Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-plain'",
+      "stdout": "CTIW5-2e6084ecb5404749a4413892fe32a9da-plain",
+      "stderr": "empty",
+      "ground_truth": "benign",
+      "record_id": 6567,
+      "timestamp_utc": "2026-10-08T19:02:37.8668051Z",
+      "command_line": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -Command Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-plain'",
+      "original_xml_sha256": "76a26d69f7b227457a6dcd69b13b1f4c72ffc260e6feabc56a704350ed8831d8"
+    },
+    {
+      "case_id": "encoded",
+      "pid": 8720,
+      "exit_code": 0,
+      "payload": "Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-encoded'",
+      "stdout": "CTIW5-2e6084ecb5404749a4413892fe32a9da-encoded",
+      "stderr": "powershell_progress_only",
+      "ground_truth": "benign",
+      "record_id": 6575,
+      "timestamp_utc": "2026-10-08T19:02:39.9503928Z",
+      "command_line": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAFcANQAtADIAZQA2ADAAOAA0AGUAYwBiADUANAAwADQANwA0ADkAYQA0ADQAMQAzADgAOQAyAGYAZQAzADIAYQA5AGQAYQAtAGUAbgBjAG8AZABlAGQAJwA=",
+      "original_xml_sha256": "9d966ed9b5a0f403ca82dc89426120640e08ad69e60442255f706de98f316ee7"
+    },
+    {
+      "case_id": "hidden",
+      "pid": 22840,
+      "exit_code": 0,
+      "payload": "Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-hidden'",
+      "stdout": "CTIW5-2e6084ecb5404749a4413892fe32a9da-hidden",
+      "stderr": "empty",
+      "ground_truth": "benign",
+      "record_id": 6583,
+      "timestamp_utc": "2026-10-08T19:02:41.5529113Z",
+      "command_line": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -Command Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-hidden'",
+      "original_xml_sha256": "85fd34a14c213d220f686c77db2bd0c1c88166566a41fe11bdc758994e7910a8"
+    },
+    {
+      "case_id": "encoded_hidden",
+      "pid": 36600,
+      "exit_code": 0,
+      "payload": "Write-Output 'CTIW5-2e6084ecb5404749a4413892fe32a9da-encoded_hidden'",
+      "stdout": "CTIW5-2e6084ecb5404749a4413892fe32a9da-encoded_hidden",
+      "stderr": "powershell_progress_only",
+      "ground_truth": "benign",
+      "record_id": 6591,
+      "timestamp_utc": "2026-10-08T19:02:42.6323570Z",
+      "command_line": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAFcANQAtADIAZQA2ADAAOAA0AGUAYwBiADUANAAwADQANwA0ADkAYQA0ADQAMQAzADgAOQAyAGYAZQAzADIAYQA5AGQAYQAtAGUAbgBjAG8AZABlAGQAXwBoAGkAZABkAGUAbgAnAA==",
+      "original_xml_sha256": "f7e7b51b1552bc676c74b5d9492b22572182cee3e6d0f34b7a7f542503eb74d5"
+    }
+  ],
+  "redactions": [
+    "Event/System/Computer replaced with CTI-LAB-HOST",
+    "Event/System/Security/@UserID replaced with S-1-0-0 when present"
+  ],
+  "scope": "Genuine native events from four controlled benign launches; launch flags alone do not establish malware.",
+  "raw_originals": "PrivateDirectory/<run_id>/*.original.xml outside repository",
+  "artifacts": [
+    {
+      "path": "windows-events.xml",
+      "sha256": "fd8a61fc3f0e2bc341fedfde10fcd2abbf3727597b9d7876ef86c2b20ab1b771"
+    },
+    {
+      "path": "powershell-events.jsonl",
+      "sha256": "8686d200870bd9d36110e4763711e1a8088443d7738fb47ad77040aec0b151c0"
+    }
+  ]
+}

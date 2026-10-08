@@ -195,6 +195,8 @@ For our project, VirusTotal is relevant because a SOC analyst can use threat int
 
 ## 8. Maltego
 
+**Update, 9 October 2026:** [The DNS supplement](dns-supplement.md) adds six relationships supported by actual resolver answers, timestamps and source hashes. They were collected independently of the Maltego client. The historical screenshot below still does not establish completed transforms; new client execution evidence remains pending.
+
 Maltego was used to demonstrate manual entity entry. The captured graph shows `Entities: 5` and `Links: 0`; it demonstrates the interface and nodes, but does not establish verified relationships or successful automated transforms.
 
 For the practical activity, we used:
@@ -427,6 +429,7 @@ During Week 2, our group completed the following activities:
 * investigated `example.com` using VirusTotal;
 * examined the available VirusTotal detection and community information;
 * created a Maltego graph using manually added technical entities;
+* added a later live DNS collection of six verified relationships, with raw answers and provenance in the supplement;
 * studied the purposes of Shodan, VirusTotal, and Maltego;
 * developed a data source mapping;
 * connected OSINT data collection with our LLM-assisted SOC project;

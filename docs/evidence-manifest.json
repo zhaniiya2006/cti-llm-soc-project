@@ -44,6 +44,21 @@
       "path": "week3/images/03-misp-event-live.jpg",
       "kind_and_scope": "interface screenshot: actual local MISP Event 1 view",
       "sha256": "0b622b87facbc8df98abdfc72e2729eab7a0e84cb75cfefdec16d71274dd9ee0"
+    },
+    {
+      "path": "week5/images/01-baseline-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Kibana baseline query, 4 genuine lab events",
+      "sha256": "20b806bd32e5e3a1bca10b94fac25c6d9b798243d2e9829eedbd1b88a60292c6"
+    },
+    {
+      "path": "week5/images/02-encoded-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Kibana EncodedCommand query, 2 benign review candidates",
+      "sha256": "3637aee337bda2f27ecc381169dd17d074a269c7e2a4fda708a8c2d4099f2d13"
+    },
+    {
+      "path": "week5/images/03-encoded-hidden-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Kibana combined query, 1 benign review candidate",
+      "sha256": "91e9871128d241d2b5d2250800e39e5cd935f35aa7108a6e8a5bf372a348c791"
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "baseline": {
+    "size": 100,
+    "track_total_hits": true,
+    "sort": [{"@timestamp": "asc"}],
+    "query": {"bool": {"filter": [{"term": {"event.code": "400"}}, {"term": {"process.name": "powershell.exe"}}]}}
+  },
+  "encoded": {
+    "size": 100,
+    "track_total_hits": true,
+    "sort": [{"@timestamp": "asc"}],
+    "query": {"bool": {"filter": [
+      {"term": {"event.code": "400"}},
+      {"term": {"process.name": "powershell.exe"}},
+      {"regexp": {"process.command_line": {"value": ".*[ ]-encodedcommand[ ]+[^ ]+.*", "case_insensitive": true}}}
+    ]}}
+  },
+  "encoded_hidden": {
+    "size": 100,
+    "track_total_hits": true,
+    "sort": [{"@timestamp": "asc"}],
+    "query": {"bool": {"filter": [
+      {"term": {"event.code": "400"}},
+      {"term": {"process.name": "powershell.exe"}},
+      {"regexp": {"process.command_line": {"value": ".*[ ]-encodedcommand[ ]+[^ ]+.*", "case_insensitive": true}}},
+      {"regexp": {"process.command_line": {"value": ".*[ ]-windowstyle[ ]+hidden([ ].*)?", "case_insensitive": true}}}
+    ]}}
+  }
+}

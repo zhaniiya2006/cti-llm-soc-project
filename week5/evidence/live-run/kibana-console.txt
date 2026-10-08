@@ -1,0 +1,107 @@
+# baseline
+GET cti-week5-20261008-190520-9a4ec6b1/_search
+{
+  "size": 100,
+  "track_total_hits": true,
+  "sort": [
+    {
+      "@timestamp": "asc"
+    }
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "event.code": "400"
+          }
+        },
+        {
+          "term": {
+            "process.name": "powershell.exe"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# encoded
+GET cti-week5-20261008-190520-9a4ec6b1/_search
+{
+  "size": 100,
+  "track_total_hits": true,
+  "sort": [
+    {
+      "@timestamp": "asc"
+    }
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "event.code": "400"
+          }
+        },
+        {
+          "term": {
+            "process.name": "powershell.exe"
+          }
+        },
+        {
+          "regexp": {
+            "process.command_line": {
+              "value": ".*[ ]-encodedcommand[ ]+[^ ]+.*",
+              "case_insensitive": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+# encoded_hidden
+GET cti-week5-20261008-190520-9a4ec6b1/_search
+{
+  "size": 100,
+  "track_total_hits": true,
+  "sort": [
+    {
+      "@timestamp": "asc"
+    }
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "event.code": "400"
+          }
+        },
+        {
+          "term": {
+            "process.name": "powershell.exe"
+          }
+        },
+        {
+          "regexp": {
+            "process.command_line": {
+              "value": ".*[ ]-encodedcommand[ ]+[^ ]+.*",
+              "case_insensitive": true
+            }
+          }
+        },
+        {
+          "regexp": {
+            "process.command_line": {
+              "value": ".*[ ]-windowstyle[ ]+hidden([ ].*)?",
+              "case_insensitive": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

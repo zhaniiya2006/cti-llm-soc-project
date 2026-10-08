@@ -4,7 +4,7 @@
 
 **Course:** Introduction to Threat Hunting, 2026-2027
 
-**Scope:** Weeks 1-4
+**Scope:** Weeks 1-5
 
 The project studies how validated threat intelligence can support a SOC analyst and provide structured input for an LLM. The exercises use documentation examples and public research. The repository does not claim to contain a deployed LLM SOC application.
 
@@ -16,6 +16,9 @@ The project studies how validated threat intelligence can support a SOC analyst 
 | 2 | OSINT collection and data source mapping | [Week 2 report](week2/week2-report.md) | [Images](week2/images/), [structured observations](week2/data/osint-observations.csv), [source mapping](week2/data/source-mapping.csv) |
 | 3 | MISP import, filtering and normalization | [Week 3 report](week3/week3-report.md) | [Data](week3/data/), [live MISP screenshot](week3/images/03-misp-event-live.jpg), [lab reproduction](week3/lab-reproduction.md) |
 | 4 | WannaCry case study using the Kill Chain and ATT&CK | [Week 4 report](week4/week4-report.md) | Cited stage mapping and detection opportunities; a literature study, not a malware execution lab |
+| 5 | Hypothesis-driven PowerShell hunt in Elastic | [Week 5 report](week5/week5-report.md) | [Genuine native events](week5/data/), [actual query results](week5/evidence/live-run/hunt-results.json), [3 live Kibana screenshots](week5/images/) |
+
+Week 2 now includes [live DNS collection with six evidence-backed relationships](week2/dns-supplement.md). Maltego client transform execution still requires completion of its activation/login; the existing manual graph is preserved with its limitations.
 
 ## Reproduce the processing
 
@@ -26,9 +29,18 @@ python week3/process_iocs.py
 python week3/enrich_correlate.py
 python -m unittest discover -s tests -v
 python tools/verify_repo.py
+python tools/verify_week5.py
 ```
 
 The included sample produces 8 input records, 4 valid unique indicators, 2 duplicates and 2 rejected records. All exported MISP IDS flags remain false. The generated context and relationships are a local training demonstration, not proof of malicious activity.
+
+Week 5 replay requires the existing local Elasticsearch/Kibana training lab:
+
+```powershell
+python week5/run_hunt.py --output-dir week5/evidence/my-replay
+```
+
+The archived four benign PowerShell launches produced four genuine Event 400 records. Actual Elastic searches returned 4 baseline records, 2 encoded-command candidates and 1 combined encoded/hidden candidate. All cases are benign; the results do not establish malware detection effectiveness. See the report for runtime prerequisites and collection commands.
 
 Optional Sigma syntax validation uses the official pySigma parser and requires Python 3.11 or newer:
 
@@ -41,9 +53,11 @@ Illustrations can be regenerated on Windows with Segoe UI fonts using `python we
 
 ## Verification and limitations
 
-The local MISP instance was running and Event 1 was imported with four attributes. Deploying that lab from scratch is a separate reproduction step documented in the lab guide. Elastic was not run; Sigma parser validation does not establish detection effectiveness in a SIEM. The original Maltego screenshot shows manually entered entities and zero links, so automated transforms and verified relationships are not claimed.
+The local MISP instance was running and Event 1 was imported with four attributes. Deploying that lab from scratch is a separate reproduction step documented in the lab guide. Elastic was run and queried for Week 5; the Week 3 Sigma rule was not executed in that SIEM. Sigma parser validation does not establish detection effectiveness. The original Maltego screenshot shows manually entered entities and zero links. The new DNS relationships were collected independently, so they do not prove a Maltego transform execution.
 
 See [the audit](docs/audit-weeks1-4.md) for requirement coverage, remaining evidence limitations and the comparison with GitHub. [The master audit prompt](docs/master-audit-prompt.txt) defines how to repeat the review. [Upload instructions](docs/upload-instructions.md) explain how to preserve the folder structure on GitHub.
+
+[The updated progress record](docs/progress-weeks1-5.md) distinguishes the original audit from the new Week 2 collection and completed Week 5 practice.
 
 ## Repository structure
 
@@ -52,6 +66,7 @@ Week1/     CTI fundamentals report
 week2/     OSINT report, observations and images
 week3/     Processor, inputs, outputs, Sigma rule and MISP evidence
 week4/     WannaCry case study
+week5/     Native PowerShell events, Elastic queries, results and live screenshots
 docs/      Audit, master prompt and upload guide
 tests/     Normalization and provenance checks
 tools/     Repository and Sigma validators
