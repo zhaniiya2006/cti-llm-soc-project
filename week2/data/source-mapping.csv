@@ -1,0 +1,8 @@
+source,access_class,input,output,analysis_use,collection_status,quality_limit
+Shodan,public and account-restricted,text query,host banners and result aggregates,infrastructure context,search screenshot retained,Text matches do not establish domain ownership
+VirusTotal,public and account-restricted,domain,vendor results and context,indicator contextualization,domain result screenshot retained,Historical verdicts may change; zero detections is not proof of safety
+Maltego,account-based,manually entered entities,graph nodes,relationship investigation,manual nodes screenshot retained,Zero links and no transform output verified
+OSINT Framework,public,information requirement,resource categories,source selection,resource screenshot retained,Directory itself is not an intelligence verdict
+SANS,public and restricted publications,learning topic,educational material,methodology,article screenshot retained,Education is not a collected IOC feed
+Internal SOC logs,private and authorized,event records,alerts and telemetry,event correlation,planned only,No internal telemetry was collected for Week 2
+EDR and firewall,private and authorized,endpoint and network events,process and connection evidence,behavior validation,planned only,No EDR or firewall data was collected for Week 2

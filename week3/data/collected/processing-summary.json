@@ -1,0 +1,13 @@
+{
+  "input_records": 1,
+  "valid_unique_indicators": 1,
+  "duplicates_removed": 0,
+  "duplicate_records": [],
+  "invalid_records_filtered": 0,
+  "rejected_records": [],
+  "indicator_counts_by_type": {
+    "domain": 1
+  },
+  "safety": "Training-only indicators. MISP to_ids is false for every attribute.",
+  "misp_event_uuid": "4c79d38f-6ad2-582d-9526-35d96f4b4d9e"
+}

@@ -3,13 +3,15 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
+import hashlib
 import ipaddress
 import json
 import re
 import sys
 import uuid
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
@@ -20,10 +22,11 @@ NORMALIZED = ROOT / "data" / "normalized_iocs.csv"
 MISP_EVENT = ROOT / "data" / "misp-event.json"
 SUMMARY = ROOT / "data" / "processing-summary.json"
 SHA256_RE = re.compile(r"^[0-9a-fA-F]{64}$")
+FIELDS = ["record_id", "type", "value", "source", "first_seen", "confidence", "to_ids", "context"]
 
 
 def normalize_domain(value: str) -> str:
-    domain = value.strip().lower().rstrip(".")
+    domain = value.strip().lower().removesuffix(".")
     if len(domain) > 253 or not domain or ".." in domain:
         raise ValueError("invalid domain syntax")
     labels = domain.split(".")
@@ -41,6 +44,8 @@ def normalize_domain(value: str) -> str:
 
 def normalize_value(kind: str, value: str) -> str:
     value = value.strip()
+    if any(ord(char) < 32 for char in value):
+        raise ValueError("control characters are not supported")
     if kind == "domain":
         return normalize_domain(value)
     if kind == "ip-dst":
@@ -51,9 +56,13 @@ def normalize_value(kind: str, value: str) -> str:
     if kind == "url":
         parsed = urlsplit(value)
         scheme = parsed.scheme.lower()
-        host = (parsed.hostname or "").lower().rstrip(".")
+        host = (parsed.hostname or "").lower()
         if scheme not in {"http", "https"} or not host:
             raise ValueError("expected an absolute HTTP(S) URL")
+        if parsed.username is not None or parsed.password is not None:
+            raise ValueError("URL credentials are not supported")
+        if any(char.isspace() for char in value):
+            raise ValueError("unescaped URL whitespace is not supported")
         host = normalize_domain(host)
         try:
             port = parsed.port
@@ -68,28 +77,45 @@ def normalize_value(kind: str, value: str) -> str:
     raise ValueError("unsupported indicator type")
 
 
-def main() -> int:
+def process(raw: Path = RAW, output_dir: Path = ROOT / "data", event_date: str | None = None) -> dict:
     accepted: list[dict[str, str]] = []
     rejected: list[dict[str, str]] = []
-    seen: set[tuple[str, str]] = set()
+    seen: dict[tuple[str, str], str] = {}
     duplicate_count = 0
+    duplicates: list[dict[str, str]] = []
 
-    with RAW.open(newline="", encoding="utf-8") as stream:
-        rows = list(csv.DictReader(stream))
+    with raw.open(newline="", encoding="utf-8-sig") as stream:
+        reader = csv.DictReader(stream)
+        required = {"record_id", "type", "value", "source", "first_seen", "confidence", "note"}
+        if not required.issubset(reader.fieldnames or []):
+            raise ValueError("input CSV is missing required columns")
+        rows = list(reader)
 
     for row in rows:
-        kind = row["type"].strip().lower()
         try:
+            if any(row.get(field) is None for field in required):
+                raise ValueError("incomplete CSV record")
+            kind = row["type"].strip().lower()
             value = normalize_value(kind, row["value"])
+            if not row["record_id"].strip() or not row["source"].strip():
+                raise ValueError("record_id and source are required")
+            if row["confidence"].strip():
+                confidence = int(row["confidence"])
+                if not 0 <= confidence <= 100:
+                    raise ValueError("confidence must be between 0 and 100, or blank when not assessed")
+            observed = datetime.fromisoformat(row["first_seen"].strip().replace("Z", "+00:00"))
+            if observed.utcoffset() is None:
+                raise ValueError("first_seen must contain a timezone")
         except (ValueError, TypeError) as exc:
-            rejected.append({"record_id": row["record_id"], "reason": str(exc)})
+            rejected.append({"record_id": row.get("record_id") or "unknown", "reason": str(exc)})
             continue
 
         key = (kind, value)
         if key in seen:
             duplicate_count += 1
+            duplicates.append({"record_id": row["record_id"], "retained_record_id": seen[key], "source": row["source"], "first_seen": row["first_seen"]})
             continue
-        seen.add(key)
+        seen[key] = row["record_id"]
         accepted.append(
             {
                 "record_id": row["record_id"],
@@ -103,20 +129,27 @@ def main() -> int:
             }
         )
 
-    NORMALIZED.parent.mkdir(parents=True, exist_ok=True)
-    with NORMALIZED.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(accepted[0].keys()))
+    output_dir.mkdir(parents=True, exist_ok=True)
+    if event_date is None:
+        event_date = max((item["first_seen"][:10] for item in accepted), default="1970-01-01")
+    date.fromisoformat(event_date)
+    with (output_dir / "normalized_iocs.csv").open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=FIELDS)
         writer.writeheader()
         writer.writerows(accepted)
 
+    content_hash = hashlib.sha256(json.dumps(rows, sort_keys=True).encode("utf-8")).hexdigest()
+    event_key = "cti-llm-soc-project/week3/misp-event" if raw.resolve() == RAW.resolve() else f"cti-llm-soc-project/week3/{raw.stem}/{content_hash}"
+    event_uuid = str(uuid.uuid5(uuid.NAMESPACE_URL, event_key))
     event = {
         "Event": {
             "info": "Week 3 CTI data processing lab - benign synthetic indicators",
-            "uuid": str(uuid.uuid5(uuid.NAMESPACE_URL, "cti-llm-soc-project/week3/misp-event")),
-            "date": date.today().isoformat(),
+            "uuid": event_uuid,
+            "date": event_date,
             "threat_level_id": "4",
             "analysis": "0",
             "distribution": "0",
+            "published": False,
             "Attribute": [
                 {
                     "uuid": str(uuid.uuid5(uuid.NAMESPACE_URL, f"cti-llm-soc-project/week3/{item['type']}/{item['value']}")),
@@ -124,18 +157,19 @@ def main() -> int:
                     "category": "Network activity" if item["type"] in {"domain", "ip-dst", "url"} else "Payload delivery",
                     "value": item["value"],
                     "to_ids": False,
-                    "comment": f"{item['context']} Source: {item['source']}; confidence: {item['confidence']}/100; first seen: {item['first_seen']}",
+                    "comment": f"{item['context']} Source: {item['source']}; confidence: {item['confidence'] + '/100' if item['confidence'] else 'not assessed'}; first seen: {item['first_seen']}",
                 }
                 for item in accepted
             ],
         }
     }
-    MISP_EVENT.write_text(json.dumps(event, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "misp-event.json").write_text(json.dumps(event, indent=2) + "\n", encoding="utf-8")
 
     summary = {
         "input_records": len(rows),
         "valid_unique_indicators": len(accepted),
         "duplicates_removed": duplicate_count,
+        "duplicate_records": duplicates,
         "invalid_records_filtered": len(rejected),
         "rejected_records": rejected,
         "indicator_counts_by_type": {
@@ -143,15 +177,22 @@ def main() -> int:
             for kind in sorted({item["type"] for item in accepted})
         },
         "safety": "Training-only indicators. MISP to_ids is false for every attribute.",
-        "misp_event_uuid": str(uuid.uuid5(uuid.NAMESPACE_URL, "cti-llm-soc-project/week3/misp-event")),
+        "misp_event_uuid": event_uuid,
     }
-    SUMMARY.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "processing-summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
 
     if len(rows) != len(accepted) + duplicate_count + len(rejected):
         raise RuntimeError("processing counts do not balance")
-    if len(accepted) != 4 or duplicate_count != 2 or len(rejected) != 2:
-        raise RuntimeError("unexpected lab result; review input or validation rules")
-    print(json.dumps(summary, indent=2))
+    return summary
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", type=Path, default=RAW)
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "data")
+    parser.add_argument("--event-date", help="ISO date; defaults to latest accepted input observation date")
+    args = parser.parse_args()
+    print(json.dumps(process(args.input, args.output_dir, args.event_date), indent=2))
     return 0
 
 

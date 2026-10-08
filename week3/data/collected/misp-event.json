@@ -1,0 +1,21 @@
+{
+  "Event": {
+    "info": "Week 3 CTI data processing lab - benign synthetic indicators",
+    "uuid": "4c79d38f-6ad2-582d-9526-35d96f4b4d9e",
+    "date": "2026-10-08",
+    "threat_level_id": "4",
+    "analysis": "0",
+    "distribution": "0",
+    "published": false,
+    "Attribute": [
+      {
+        "uuid": "81cfe2a9-89c8-5b9d-bd80-1ac356366772",
+        "type": "domain",
+        "category": "Network activity",
+        "value": "example.com",
+        "to_ids": false,
+        "comment": "Domain transcribed from retained screenshot. first_seen is first recording in this dataset during audit; original exact capture time is unknown. Historical taskbar date: 2026-09-28. Threat confidence not assessed. Source: Week 2 VirusTotal screenshot: week2/images/virustotal-search.png; confidence: not assessed; first seen: 2026-10-08T13:00:19Z"
+      }
+    ]
+  }
+}

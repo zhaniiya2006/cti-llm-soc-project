@@ -1,0 +1,97 @@
+{
+  "scope": "Local training context and syntactic relationships; no reputation lookup or SIEM execution",
+  "records": [
+    {
+      "indicator": {
+        "record_id": "LAB-001",
+        "type": "domain",
+        "value": "example.com",
+        "source": "Week 2 OSINT lab",
+        "first_seen": "2026-10-08T09:00:00Z",
+        "confidence": "50",
+        "to_ids": "false",
+        "context": "Reserved example domain; training data only"
+      },
+      "added_context": [
+        {
+          "fact": "Maintained as a documentation example domain",
+          "source": "https://www.iana.org/help/example-domains",
+          "method": "official documentation reviewed during audit",
+          "checked_on": "2026-10-08"
+        }
+      ],
+      "maliciousness": "not asserted"
+    },
+    {
+      "indicator": {
+        "record_id": "LAB-003",
+        "type": "ip-dst",
+        "value": "198.51.100.42",
+        "source": "Documentation range",
+        "first_seen": "2026-10-08T09:10:00Z",
+        "confidence": "20",
+        "to_ids": "false",
+        "context": "RFC 5737 TEST-NET-2 address; do not treat as malicious"
+      },
+      "added_context": [
+        {
+          "fact": "Member of documentation block 198.51.100.0/24 (TEST-NET-2)",
+          "source": "https://www.rfc-editor.org/rfc/rfc5737",
+          "method": "documentation-range classification",
+          "checked_on": "2026-10-08"
+        }
+      ],
+      "maliciousness": "not asserted"
+    },
+    {
+      "indicator": {
+        "record_id": "LAB-004",
+        "type": "url",
+        "value": "https://example.com/login?session=demo",
+        "source": "Training example",
+        "first_seen": "2026-10-08T09:15:00Z",
+        "confidence": "20",
+        "to_ids": "false",
+        "context": "URL on reserved example domain"
+      },
+      "added_context": [
+        {
+          "fact": "URL host equals normalized domain record LAB-001",
+          "source": "local normalized CSV",
+          "method": "syntactic relationship"
+        }
+      ],
+      "maliciousness": "not asserted"
+    },
+    {
+      "indicator": {
+        "record_id": "LAB-005",
+        "type": "sha256",
+        "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "source": "Local calculation",
+        "first_seen": "2026-10-08T09:20:00Z",
+        "confidence": "10",
+        "to_ids": "false",
+        "context": "SHA-256 of an empty file; benign test value"
+      },
+      "added_context": [
+        {
+          "fact": "SHA-256 digest of the empty byte sequence",
+          "source": "local hashlib.sha256(b'') calculation",
+          "method": "deterministic local calculation"
+        }
+      ],
+      "maliciousness": "not asserted"
+    }
+  ],
+  "relationships": [
+    {
+      "from_record": "LAB-004",
+      "to_record": "LAB-001",
+      "relation": "URL has this host",
+      "evidence": "https://example.com/login?session=demo",
+      "method": "parse normalized URL; exact host equality",
+      "threat_verdict": "none"
+    }
+  ]
+}

@@ -82,10 +82,10 @@ def render_misp():
     event = data["Event"]
     attrs = event["Attribute"]
 
-    image, draw = base("Imported MISP event", "Event 1 verified in the local MISP interface")
+    image, draw = base("MISP export summary", "Illustration from the generated JSON; live interface evidence is a separate JPG")
     rounded(draw, (76, 245, 1524, 340), 16, "#fff7ed", "#fed7aa", 2)
-    draw.text((104, 267), "IMPORT CONFIRMED  /  EVENT ID 1", font=font("segoeuib.ttf", 19), fill="#15803d")
-    draw.text((104, 303), "MISP showed Event created; event is unpublished and organization-only.", font=font("segoeui.ttf", 20), fill="#166534")
+    draw.text((104, 267), "JSON STRUCTURE  /  REPORT ILLUSTRATION", font=font("segoeuib.ttf", 19), fill="#15803d")
+    draw.text((104, 303), "Training export: unpublished, organization-only and all IDS flags false.", font=font("segoeui.ttf", 20), fill="#166534")
 
     rounded(draw, (76, 375, 1524, 510), 16, "white", "#dbe3ef", 2)
     draw.text((108, 402), "EVENT", font=font("segoeuib.ttf", 16), fill="#64748b")
@@ -114,7 +114,7 @@ def render_misp():
             x += width
         draw.line((left, y + 64, left + table_w, y + 64), fill="#e2e8f0", width=1)
 
-    draw.text((76, 918), f"Source: verified MISP event view + data/misp-event.json  |  {len(attrs)} benign training attributes  |  all to_ids=false", font=font("segoeui.ttf", 16), fill="#64748b")
+    draw.text((76, 918), f"Source: data/misp-event.json  |  {len(attrs)} benign training attributes  |  Live proof: 03-misp-event-live.jpg", font=font("segoeui.ttf", 16), fill="#64748b")
     image.save(OUT / "02-misp-import-payload.png", optimize=True)
 
 

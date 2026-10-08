@@ -1,0 +1,49 @@
+{
+  "images": [
+    {
+      "path": "week2/images/data-source-mapping.png",
+      "kind_and_scope": "diagram: conceptual data-source mapping",
+      "sha256": "b9bfcd02efa9dc62d145dbb4f71d18460d7c90867dd10c8ba6b3990f840d7126"
+    },
+    {
+      "path": "week2/images/maltego-graph.png",
+      "kind_and_scope": "interface screenshot: 5 manual nodes, 0 links",
+      "sha256": "f565357961b1c2221602a0eee7ec667149ef548acf9ea768dbe42a5590e20b71"
+    },
+    {
+      "path": "week2/images/osint-framework.png",
+      "kind_and_scope": "interface screenshot: source directory",
+      "sha256": "3e3ba37cb87bad26673dfbdbc557f8ccef86bbf945ff59724d94d0d902fc3dec"
+    },
+    {
+      "path": "week2/images/sans-osint.png",
+      "kind_and_scope": "interface screenshot: educational article",
+      "sha256": "83c0d4be385bc013a8e1fd910d4c1796e419fd83e636355821ba0caf6c948beb"
+    },
+    {
+      "path": "week2/images/shodan-search.png",
+      "kind_and_scope": "interface screenshot: broad text search; no host ownership proof",
+      "sha256": "0fd127a5f8ec36c1f6bf699415f1854172952a05193769b8948199dae857ef3a"
+    },
+    {
+      "path": "week2/images/virustotal-search.png",
+      "kind_and_scope": "interface screenshot: historical domain result",
+      "sha256": "8879b2489bdc77d76718d2d7c551f48132ef20729d2095725a1956b21023bcdc"
+    },
+    {
+      "path": "week3/images/01-processing-results.png",
+      "kind_and_scope": "illustration: generated from checked processing outputs",
+      "sha256": "bf8db8c09f3fea04fc43b5383d25589aeba22f564caec902b0b5ecb85005dbc9"
+    },
+    {
+      "path": "week3/images/02-misp-import-payload.png",
+      "kind_and_scope": "illustration: MISP JSON summary, not a live capture",
+      "sha256": "9a9a7aa3bbe97d786a11d17f5be98c1ea22baffb560997307f97942c08681ad0"
+    },
+    {
+      "path": "week3/images/03-misp-event-live.jpg",
+      "kind_and_scope": "interface screenshot: actual local MISP Event 1 view",
+      "sha256": "0b622b87facbc8df98abdfc72e2729eab7a0e84cb75cfefdec16d71274dd9ee0"
+    }
+  ]
+}

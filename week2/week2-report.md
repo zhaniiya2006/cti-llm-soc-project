@@ -78,7 +78,7 @@ For example, an analyst investigating a domain or IP address can use OSINT resou
 
 **Figure 1. OSINT Framework**
 
-![OSINT Framework](week2/images/osint-framework.png)
+![OSINT Framework](images/osint-framework.png)
 
 The OSINT Framework was useful for understanding that OSINT is not one single tool. Instead, it is a collection of different sources and techniques that can be used depending on the intelligence question.
 
@@ -92,7 +92,7 @@ SANS provides cybersecurity education and security research materials. Its resou
 
 **Figure 2. SANS OSINT Resource**
 
-![Shodan Search](week2/images/sans-osint.png)
+![SANS OSINT resource](images/sans-osint.png)
 
 SANS materials are useful as a supporting knowledge source because they provide cybersecurity-related information that can help analysts understand and interpret collected data.
 
@@ -112,6 +112,20 @@ The purpose was not to investigate a real malicious target, but to demonstrate h
 
 ---
 
+### Collected observations and evidence scope
+
+The intelligence question was: what context do the selected tools display for the benign domain `example.com`, and which claims can the observations support?
+
+The screenshot observations are recorded in [`data/osint-observations.csv`](data/osint-observations.csv). Dates are taken from the taskbar visible in the original captures (27-28 September 2026); they are not asserted as exact UTC collection timestamps. The separate [`data/source-mapping.csv`](data/source-mapping.csv) maps input, output, access, analytical use and reliability limits. Internal SOC sources are explicitly planned rather than collected.
+
+| Tool | What is evidenced | What is not evidenced |
+|---|---|---|
+| Shodan | Broad text search and aggregate result count | Ownership of returned hosts by the domain |
+| VirusTotal | Displayed domain context and historical 0/91 vendor detections | Guaranteed safety or a current verdict |
+| Maltego | Five manually entered nodes in the interface | Automated transforms, verified entity types or links |
+
+The Maltego component is an introductory manual demonstration. Stronger practical evidence would be an exported graph with sourced links and transform results; those outputs were not present in the repository and have not been invented during this audit.
+
 ## 6. Shodan
 
 Shodan was used to explore publicly available information about Internet-connected infrastructure.
@@ -122,7 +136,7 @@ For the practical demonstration, we searched for:
 example.com
 ```
 
-The search returned general information about Internet-facing hosts and services associated with the search.
+The search returned hosts and services matching a broad text query. It did not establish that those hosts belonged to `example.com`.
 
 The Shodan results included information such as:
 
@@ -135,9 +149,9 @@ The Shodan results included information such as:
 
 **Figure 3. Shodan Search**
 
-![Shodan Search](week2/images/shodan-search.png)
+![Shodan Search](images/shodan-search.png)
 
-The search produced a large number of results. These results should not be interpreted as evidence that the listed IP addresses are malicious.
+The captured search shows 135,525 results. This is a historical observation from the screenshot, not a current count or a list of systems belonging to the domain. A broad text match can occur in banners unrelated to domain ownership. These results should not be interpreted as evidence that the listed IP addresses are malicious.
 
 The purpose of this activity was to understand what type of infrastructure-level information can be obtained through a public search engine such as Shodan.
 
@@ -167,7 +181,7 @@ The VirusTotal result showed:
 
 **Figure 4. VirusTotal Search**
 
-![VirusTotal Search](week2/images/virustotal-search.png)
+![VirusTotal Search](images/virustotal-search.png)
 
 The result did not indicate that the domain was malicious. VirusTotal showed `0/91` detections in the displayed analysis.
 
@@ -181,7 +195,7 @@ For our project, VirusTotal is relevant because a SOC analyst can use threat int
 
 ## 8. Maltego
 
-Maltego was used to demonstrate how OSINT information can be organized as entities and relationships.
+Maltego was used to demonstrate manual entity entry. The captured graph shows `Entities: 5` and `Links: 0`; it demonstrates the interface and nodes, but does not establish verified relationships or successful automated transforms.
 
 For the practical activity, we used:
 
@@ -189,7 +203,7 @@ For the practical activity, we used:
 example.com
 ```
 
-The following entities were manually added to the Maltego graph:
+The report originally described the intended entity categories as follows. The screenshot truncates several labels and does not independently verify their full values or types:
 
 * IPv4 Address;
 * DNS Name;
@@ -198,7 +212,7 @@ The following entities were manually added to the Maltego graph:
 
 **Figure 5. Maltego Investigation Graph**
 
-![Maltego Graph](week2/images/maltego-graph.png)
+![Maltego Graph](images/maltego-graph.png)
 
 The entities represent different types of technical information that can be considered during an investigation.
 
@@ -210,7 +224,7 @@ An **MX Record** is related to mail exchange infrastructure.
 
 An **NS Record** represents name server information.
 
-The entities were added manually for the purpose of demonstrating the types of information that can be considered during an OSINT investigation.
+The entities were added manually for the purpose of demonstrating the types of information that can be considered during an OSINT investigation. The visible `93.184.216...` label is not treated as a verified current DNS result. The two `maltego.com` nodes and truncated email label must not be reported as infrastructure belonging to `example.com` without evidence.
 
 The main purpose of this activity was to understand the concept of relationship-based investigation. In a real investigation, Maltego can be used to explore relationships between different entities and visualize information that may otherwise be difficult to understand when viewed separately.
 
@@ -308,7 +322,7 @@ The relationship between the sources can be represented as follows:
 
 **Figure 6. Data Source Mapping**
 
-![Data Source Mapping](week2/images/data-source-mapping.png)
+![Data Source Mapping](images/data-source-mapping.png)
 
 The diagram demonstrates how information from different sources can eventually be combined for security analysis.
 
@@ -397,7 +411,7 @@ One of the recommended resources for Week 2 was Michael Bazzell's book:
 
 This resource provides practical information about OSINT methods and demonstrates how publicly available information can be collected and analyzed.
 
-The recommended reading helped us understand that OSINT investigation requires a structured approach to source selection, data collection, verification, and analysis.
+The book is a recommended resource; the repository does not contain reading notes demonstrating that it was completed. The [publisher's book page](https://inteltechniques.com/book1) was checked during the audit. Source selection, provenance and verification remain the methodology used in this report.
 
 ---
 
@@ -454,14 +468,14 @@ The LLM is considered an assistance tool for the SOC analyst, while human verifi
 
 ## References
 
-1. SANS Institute. (n.d.). *What is Open-Source Intelligence (OSINT)?* SANS Institute.
+1. SANS Institute. [What is Open-Source Intelligence?](https://www.sans.org/blog/what-is-open-source-intelligence/).
 
-2. OSINT Framework. (n.d.). *OSINT Framework.*
+2. [OSINT Framework](https://osintframework.com/).
 
-3. Shodan. (n.d.). *Shodan — Search Engine for the Internet of Things.*
+3. Shodan. [Search query used in the screenshot](https://www.shodan.io/search?query=example.com). Results may change.
 
-4. VirusTotal. (n.d.). *VirusTotal.*
+4. VirusTotal. [example.com domain page](https://www.virustotal.com/gui/domain/example.com). Results may change.
 
-5. Maltego. (n.d.). *Maltego — Cyber Investigation Platform.*
+5. Maltego. [Official product site](https://www.maltego.com/). The screenshot provides the evidence for the manual graph.
 
-6. Bazzell, M. (n.d.). *Open Source Intelligence Techniques.*
+6. Bazzell, M. [OSINT Techniques: Resources for Uncovering Online Information](https://inteltechniques.com/book1), publisher information; recommended reading rather than a claimed completed exercise.

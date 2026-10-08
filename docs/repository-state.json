@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-10-08T13:07:46.529288+00:00",
+  "repository": "https://github.com/zhaniiya2006/cti-llm-soc-project",
+  "reviewed_main_commit": "b9f8086a0ed34c1307d4665474d5b8d8825e0645",
+  "reviewed_week3_branch_commit": "b9f8086a0ed34c1307d4665474d5b8d8825e0645",
+  "reviewed_main_files": [
+    "01-processing-results.png",
+    "02-misp-import-payload.png",
+    "README.md",
+    "Week1/week1-report.md",
+    "example_domain_connection.yml",
+    "misp-event.json",
+    "normalized_iocs.csv",
+    "process_iocs.py",
+    "processing-summary.json",
+    "raw_iocs.csv",
+    "render_evidence.py",
+    "week2/week2-report.md",
+    "week2/week2/images/.gitkeep",
+    "week2/week2/images/data-source-mapping.png",
+    "week2/week2/images/maltego-graph.png",
+    "week2/week2/images/osint-framework.png",
+    "week2/week2/images/sans-osint.png",
+    "week2/week2/images/shodan-search.png",
+    "week2/week2/images/virustotal-search.png",
+    "week3-report.md",
+    "week4/README.md"
+  ],
+  "publication_check": "Git push dry-run refused with HTTP 403: authenticated shlauze has no write permission to zhaniiya2006 repository",
+  "local_correction_branch": "codex/audit-weeks1-4",
+  "scope": "Read-only remote snapshot and publication-access check; corrected contents remain local unless separately published"
+}

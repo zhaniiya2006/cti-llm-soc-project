@@ -1,0 +1,36 @@
+{
+  "captured_at_utc": "2026-10-08T12:54:53.1999008Z",
+  "scope": "Local running-container snapshot; no credentials or environment variables",
+  "containers": [
+    {
+      "name": "misp-lab-misp-nginx-1",
+      "image": "ghcr.io/misp/misp-docker/misp-nginx:latest",
+      "status": "Up 36 minutes (healthy)",
+      "ports": "127.0.0.1:8080->8080/tcp, 127.0.0.1:8443->8443/tcp"
+    },
+    {
+      "name": "misp-lab-misp-core-1",
+      "image": "ghcr.io/misp/misp-docker/misp-core:latest",
+      "status": "Up 2 hours (healthy)",
+      "ports": "9002/tcp"
+    },
+    {
+      "name": "misp-lab-db-1",
+      "image": "mariadb:10.11",
+      "status": "Up 2 hours (healthy)",
+      "ports": "3306/tcp"
+    },
+    {
+      "name": "misp-lab-misp-modules-1",
+      "image": "ghcr.io/misp/misp-docker/misp-modules:latest",
+      "status": "Up 2 hours (healthy)",
+      "ports": ""
+    },
+    {
+      "name": "misp-lab-redis-1",
+      "image": "valkey/valkey:7.2",
+      "status": "Up 2 hours (healthy)",
+      "ports": "6379/tcp"
+    }
+  ]
+}

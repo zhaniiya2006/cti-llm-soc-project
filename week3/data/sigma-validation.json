@@ -1,0 +1,11 @@
+{
+  "rule": "week3/sigma/example_domain_connection.yml",
+  "parser": "official SigmaHQ pySigma",
+  "pysigma_version": "2.0.0",
+  "python_version": "3.12.14",
+  "parsed_rules": 1,
+  "rule_id": "565fe04e-98be-4dc6-ae2b-e1ee5f87c856",
+  "syntax_validation": "passed",
+  "siem_execution": "not performed",
+  "detection_effectiveness": "not measured"
+}

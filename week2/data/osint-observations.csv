@@ -1,0 +1,9 @@
+observation_id,source,observable,field,value,capture_display_date,evidence,status,limitation
+OSINT-001,VirusTotal,example.com,vendor_detection_ratio,0/91,2026-09-28,../images/virustotal-search.png,observed,Historical screenshot; zero detections is not proof of safety
+OSINT-002,VirusTotal,example.com,registrar_label,RESERVED-Internet Assigned Numbers Authority,2026-09-28,../images/virustotal-search.png,observed,Displayed label only; not an independent WHOIS export
+OSINT-003,VirusTotal,example.com,community_score,27,2026-09-28,../images/virustotal-search.png,observed,Historical community score; not a probability or threat verdict
+OSINT-004,Shodan,example.com,broad_search_result_count,135525,2026-09-28,../images/shodan-search.png,observed,Broad text search; results cannot be attributed to domain ownership
+OSINT-005,Maltego,educational graph,entity_count,5,2026-09-28,../images/maltego-graph.png,observed,Manual entries; full labels and transforms not verified
+OSINT-006,Maltego,educational graph,link_count,0,2026-09-28,../images/maltego-graph.png,observed,No verified entity relationships in the original graph
+OSINT-007,OSINT Framework,resource directory,page_opened,OSINT Framework,2026-09-27,../images/osint-framework.png,observed,Resource browsing rather than IOC collection
+OSINT-008,SANS,reference article,page_title,What is Open-Source Intelligence?,2026-09-27,../images/sans-osint.png,observed,Article browsing rather than IOC collection
