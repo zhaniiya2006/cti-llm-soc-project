@@ -1,22 +1,17 @@
-# Uploading the corrected project to GitHub
+# Загрузка исправленного проекта на GitHub
 
-Repository: [zhaniiya2006/cti-llm-soc-project](https://github.com/zhaniiya2006/cti-llm-soc-project).
+Репозиторий: [zhaniiya2006/cti-llm-soc-project](https://github.com/zhaniiya2006/cti-llm-soc-project).
 
-## Folder structure
+1. Распакуй ZIP через «Извлечь всё». Открой папку, где одновременно видны `README.md`, `Week1`, `week2`, `week3`, `week4`, `docs`, `tests`, `tools`, `.github`, `.gitignore` и файлы `requirements-*.txt`.
+2. Войди в GitHub как `zhaniiya2006`. Открой репозиторий, вкладку **Code**, ветку **main** и корень списка файлов.
+3. Выбери **Add file → Upload files**. Выдели всё содержимое распакованной папки (Ctrl+A) и перетащи его в область загрузки. Сохраняй каталоги целиком: отчёт должен оказаться в `week3/week3-report.md`, данные в `week3/data`, картинки в `week3/images`.
+4. Проверь список перед отправкой: пути начинаются с `Week1/`, `week2/`, `week3/` и других каталогов проекта. Дополнительной внешней папки `cti-llm-soc-project-audited/` быть не должно. Всего в архиве 46 файлов.
+5. Укажи сообщение `Update audited weeks 1-4 and evidence`. Выбери **Commit directly to main**, если доступно, и нажми **Commit changes**. Если требуется новая ветка, создай её, открой pull request и после проверки объедини его в main. Файлы в другой ветке ещё не обновляют main.
+6. После загрузки открой `week2/week2` на GitHub. Это старый каталог изображений; новые находятся в `week2/images`. Убедись, что новый отчёт открывает все шесть картинок из нового каталога. Затем в старом каталоге выбери меню **⋯ → Delete directory**, проверь список удаляемых файлов и сохрани удаление. Не удаляй основную папку `week2`.
+7. Открой корневой README и ссылки на отчёты четырёх недель. В Week 3 должны отображаться три изображения, включая настоящий `03-misp-event-live.jpg`. Проверь открытие CSV, JSON и Sigma-правила.
 
-Extract the final ZIP. Its root must contain `README.md`, `Week1`, `week2`, `week3`, `week4`, `docs`, `tests` and `tools`. The Week 3 report belongs at `week3/week3-report.md`; its data belongs in `week3/data`, figures in `week3/images` and the rule in `week3/sigma`.
+По последней проверке main (`53d74c5`) Week 3 уже лежит в правильном каталоге. Старая проблема файлов Week 3 в корне устранена владельцем; повторное удаление этих файлов не требуется.
 
-## Preferred: apply the prepared Git branch
+Загружай извлечённые файлы и каталоги. GitHub не распаковывает загруженный ZIP в структуру репозитория.
 
-Review the changes on `codex/audit-weeks1-4` and merge its pull request when one is available. This preserves the intended file moves and removes misplaced root copies.
-
-## Browser upload if Git access is unavailable
-
-1. Open the repository's **Code** tab and select the intended branch.
-2. Choose **Add file -> Upload files** at the repository root.
-3. Drag the extracted folders and root files together from File Explorer. Keep the folders intact; uploading the contents of `week3` at the repository root breaks relative paths.
-4. Commit with a message such as `Fix week structure and add audited evidence`.
-5. Remove the old misplaced root copies after the corrected versions exist: `week3-report.md`, `process_iocs.py`, `render_evidence.py`, `raw_iocs.csv`, `normalized_iocs.csv`, `misp-event.json`, `processing-summary.json`, `example_domain_connection.yml`, `01-processing-results.png`, `02-misp-import-payload.png`. These are duplicated Week 3 files, not root project files.
-6. Open the root README, each weekly report, the three Week 3 images and the data links on GitHub. Confirm they render and open. The old nested `week2/week2/images` copies can be removed once `week2/images` is present.
-
-Do not treat uploading the archive itself as installing the directory structure in the repository. GitHub displays individual report and evidence files when the extracted folders are uploaded.
+Порядок загрузки и удаления каталогов проверен по [GitHub Docs: upload](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository) и [GitHub Docs: delete directory](https://docs.github.com/en/repositories/working-with-files/managing-files/deleting-files-in-a-repository).
