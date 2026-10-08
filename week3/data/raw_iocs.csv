@@ -1,0 +1,9 @@
+record_id,type,value,source,first_seen,confidence,note
+LAB-001,domain, Example.COM. ,Week 2 OSINT lab,2026-10-08T09:00:00Z,50,Reserved example domain; training data only
+LAB-002,domain,example.com,Week 2 OSINT lab,2026-10-08T09:05:00Z,50,Duplicate spelling of LAB-001
+LAB-003,ip-dst,198.51.100.42,Documentation range,2026-10-08T09:10:00Z,20,RFC 5737 TEST-NET-2 address; do not treat as malicious
+LAB-004,url,HTTPS://Example.COM/login?session=demo#top,Training example,2026-10-08T09:15:00Z,20,URL on reserved example domain
+LAB-005,sha256,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,Local calculation,2026-10-08T09:20:00Z,10,SHA-256 of an empty file; benign test value
+LAB-006,sha256,E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855,Local calculation,2026-10-08T09:25:00Z,10,Duplicate hash with uppercase spelling
+LAB-007,ip-dst,999.10.10.5,Training example,2026-10-08T09:30:00Z,10,Invalid IPv4 address; expected to be filtered
+LAB-008,domain,bad..domain,Training example,2026-10-08T09:35:00Z,10,Malformed domain; expected to be filtered
