@@ -9,9 +9,9 @@
 **CS-2423**
 
 ## Project Area
-
+  
 **Cyber Threat Intelligence and Security Operations**
-
+   
 ---
 
 ## 1. Introduction
