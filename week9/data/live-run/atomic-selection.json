@@ -1,0 +1,22 @@
+{
+  "method": "Reviewed, parameterized official atomic commands executed directly; Invoke-AtomicRedTeam module was not installed or invoked",
+  "source_commit": "59ea87397c5faf8cad1e6ebe36fd625d0063e894",
+  "tests": [
+    {
+      "executor": "powershell.exe -e #{obfuscated_code}",
+      "actual_encoded_input": "JgAgACgAZwBjAG0AIAAoACcAaQBlAHsAMAB9ACcAIAAtAGYAIAAnAHgAJwApACkAIAAoACIAVwByACIAKwAiAGkAdAAiACsAIgBlAC0ASAAiACsAIgBvAHMAdAAgACcASAAiACsAIgBlAGwAIgArACIAbABvACwAIABmAHIAIgArACIAbwBtACAAUAAiACsAIgBvAHcAIgArACIAZQByAFMAIgArACIAaAAiACsAIgBlAGwAbAAhACcAIgApADsAIABTAHQAYQByAHQALQBTAGwAZQBlAHAAIAAtAFMAZQBjAG8AbgBkAHMAIAA0AA==",
+      "cleanup": "No persistent payload artifact",
+      "guid": "a538de64-1c74-46ed-aa60-b995ed302598",
+      "input_change": "Appended ; Start-Sleep -Seconds 4 before UTF-16LE encoding to allow native snapshot",
+      "technique": "T1059.001",
+      "decoded_default": "& (gcm ('ie{0}' -f 'x')) (\"Wr\"+\"it\"+\"e-H\"+\"ost 'H\"+\"el\"+\"lo, fr\"+\"om P\"+\"ow\"+\"erS\"+\"h\"+\"ell!'\")"
+    },
+    {
+      "guid": "9e8894c0-50bd-4525-a96c-d4ac78ece388",
+      "executor": "Start-Process \"#{script_path}\"",
+      "technique": "T1059.003",
+      "cleanup_verified": true,
+      "input_change": "command_to_execute prints CTI-ATOMIC-BATCH then sends five ICMP requests to 127.0.0.1 for observation delay; script_path is isolated run directory"
+    }
+  ]
+}

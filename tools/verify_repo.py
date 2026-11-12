@@ -25,6 +25,11 @@ ROLES = {
     "week5/images/01-baseline-live.jpg": "interface screenshot: actual Kibana baseline query, 4 genuine lab events",
     "week5/images/02-encoded-live.jpg": "interface screenshot: actual Kibana EncodedCommand query, 2 benign review candidates",
     "week5/images/03-encoded-hidden-live.jpg": "interface screenshot: actual Kibana combined query, 1 benign review candidate",
+    "week6/images/01-navigator-live.jpg": "interface screenshot: actual Navigator 5.3.2 import, PowerShell study layer; not detection coverage",
+    "week7/images/01-car-elastic-live.jpg": "interface screenshot: actual Elasticsearch browser API response, 2 benign CAR matches",
+    "week7/images/02-car-kibana-live.jpg": "interface screenshot: actual Kibana Console aggregation, baseline 3 and CAR 2, HTTP 200",
+    "week9/images/01-atomic-elastic-live.jpg": "interface screenshot: actual Elasticsearch browser API summary, 2 baseline and 1 per analytic; benign atomic tests",
+    "week9/images/02-atomic-kibana-live.jpg": "interface screenshot: actual Kibana Console aggregation, baseline 2 and three analytic counts of 1, HTTP 200",
 }
 
 

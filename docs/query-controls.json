@@ -1,0 +1,206 @@
+{
+  "executed_at_utc": "2026-11-12T10:40:35.731881+00:00",
+  "scope": "Five synthetic fixtures, separate index; not native events or malware efficacy evidence",
+  "index": "cti-synthetic-controls-4f7a73f06534",
+  "expected_matched_ids": [
+    "non_explorer"
+  ],
+  "transcript": [
+    {
+      "path": "/cti-synthetic-controls-4f7a73f06534",
+      "method": "PUT",
+      "request": {
+        "settings": {
+          "number_of_replicas": 0
+        },
+        "mappings": {
+          "properties": {
+            "process": {
+              "properties": {
+                "name": {
+                  "type": "keyword"
+                },
+                "parent": {
+                  "properties": {
+                    "name": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "status": 200,
+      "response": {
+        "acknowledged": true,
+        "shards_acknowledged": true,
+        "index": "cti-synthetic-controls-4f7a73f06534"
+      }
+    },
+    {
+      "path": "/_bulk?refresh=wait_for",
+      "method": "POST",
+      "request": "{\"create\": {\"_index\": \"cti-synthetic-controls-4f7a73f06534\", \"_id\": \"non_explorer\"}}\n{\"process\": {\"name\": \"powershell.exe\", \"parent\": {\"name\": \"cmd.exe\"}}, \"evidence_kind\": \"synthetic_boundary_fixture\"}\n{\"create\": {\"_index\": \"cti-synthetic-controls-4f7a73f06534\", \"_id\": \"explorer\"}}\n{\"process\": {\"name\": \"powershell.exe\", \"parent\": {\"name\": \"explorer.exe\"}}, \"evidence_kind\": \"synthetic_boundary_fixture\"}\n{\"create\": {\"_index\": \"cti-synthetic-controls-4f7a73f06534\", \"_id\": \"missing_parent\"}}\n{\"process\": {\"name\": \"powershell.exe\"}, \"evidence_kind\": \"synthetic_boundary_fixture\"}\n{\"create\": {\"_index\": \"cti-synthetic-controls-4f7a73f06534\", \"_id\": \"empty_parent\"}}\n{\"process\": {\"name\": \"powershell.exe\", \"parent\": {\"name\": \"\"}}, \"evidence_kind\": \"synthetic_boundary_fixture\"}\n{\"create\": {\"_index\": \"cti-synthetic-controls-4f7a73f06534\", \"_id\": \"wrong_child\"}}\n{\"process\": {\"name\": \"cmd.exe\", \"parent\": {\"name\": \"pwsh.exe\"}}, \"evidence_kind\": \"synthetic_boundary_fixture\"}\n",
+      "status": 200,
+      "response": {
+        "errors": false,
+        "took": 608,
+        "items": [
+          {
+            "create": {
+              "_index": "cti-synthetic-controls-4f7a73f06534",
+              "_id": "non_explorer",
+              "_version": 1,
+              "result": "created",
+              "_shards": {
+                "total": 1,
+                "successful": 1,
+                "failed": 0
+              },
+              "_seq_no": 0,
+              "_primary_term": 1,
+              "status": 201
+            }
+          },
+          {
+            "create": {
+              "_index": "cti-synthetic-controls-4f7a73f06534",
+              "_id": "explorer",
+              "_version": 1,
+              "result": "created",
+              "_shards": {
+                "total": 1,
+                "successful": 1,
+                "failed": 0
+              },
+              "_seq_no": 1,
+              "_primary_term": 1,
+              "status": 201
+            }
+          },
+          {
+            "create": {
+              "_index": "cti-synthetic-controls-4f7a73f06534",
+              "_id": "missing_parent",
+              "_version": 1,
+              "result": "created",
+              "_shards": {
+                "total": 1,
+                "successful": 1,
+                "failed": 0
+              },
+              "_seq_no": 2,
+              "_primary_term": 1,
+              "status": 201
+            }
+          },
+          {
+            "create": {
+              "_index": "cti-synthetic-controls-4f7a73f06534",
+              "_id": "empty_parent",
+              "_version": 1,
+              "result": "created",
+              "_shards": {
+                "total": 1,
+                "successful": 1,
+                "failed": 0
+              },
+              "_seq_no": 3,
+              "_primary_term": 1,
+              "status": 201
+            }
+          },
+          {
+            "create": {
+              "_index": "cti-synthetic-controls-4f7a73f06534",
+              "_id": "wrong_child",
+              "_version": 1,
+              "result": "created",
+              "_shards": {
+                "total": 1,
+                "successful": 1,
+                "failed": 0
+              },
+              "_seq_no": 4,
+              "_primary_term": 1,
+              "status": 201
+            }
+          }
+        ]
+      }
+    },
+    {
+      "path": "/cti-synthetic-controls-4f7a73f06534/_search",
+      "method": "POST",
+      "request": {
+        "size": 100,
+        "track_total_hits": true,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "process.name": "powershell.exe"
+                }
+              },
+              {
+                "exists": {
+                  "field": "process.parent.name"
+                }
+              }
+            ],
+            "must_not": [
+              {
+                "term": {
+                  "process.parent.name": "explorer.exe"
+                }
+              },
+              {
+                "term": {
+                  "process.parent.name": ""
+                }
+              }
+            ]
+          }
+        }
+      },
+      "status": 200,
+      "response": {
+        "took": 17,
+        "timed_out": false,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        },
+        "hits": {
+          "total": {
+            "value": 1,
+            "relation": "eq"
+          },
+          "max_score": 0.0,
+          "hits": [
+            {
+              "_index": "cti-synthetic-controls-4f7a73f06534",
+              "_id": "non_explorer",
+              "_score": 0.0,
+              "_source": {
+                "process": {
+                  "name": "powershell.exe",
+                  "parent": {
+                    "name": "cmd.exe"
+                  }
+                },
+                "evidence_kind": "synthetic_boundary_fixture"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "status": "passed"
+}

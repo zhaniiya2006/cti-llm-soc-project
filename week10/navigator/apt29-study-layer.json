@@ -1,0 +1,53 @@
+{
+  "name": "CS-2423 - APT29 literature mapping",
+  "versions": {
+    "layer": "4.5",
+    "navigator": "5.3.2"
+  },
+  "domain": "enterprise-attack",
+  "description": "Purple = analyst mapping of cited historical reporting; not executed or detection coverage.",
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1566.002",
+      "color": "#8d67b4",
+      "comment": "March 2023 T\u00fcrkiye campaign: direct analyst mapping"
+    },
+    {
+      "techniqueID": "T1027.006",
+      "color": "#8d67b4",
+      "comment": "Evolving Approach to Malware Delivery: direct analyst mapping"
+    },
+    {
+      "techniqueID": "T1204.002",
+      "color": "#8d67b4",
+      "comment": "Evolving Approach to Malware Delivery: direct analyst mapping"
+    },
+    {
+      "techniqueID": "T1480",
+      "color": "#8d67b4",
+      "comment": "March/European campaigns: cautious analyst inference"
+    },
+    {
+      "techniqueID": "T1105",
+      "color": "#8d67b4",
+      "comment": "Second-stage downloader discussion: direct analyst mapping"
+    },
+    {
+      "techniqueID": "T1102",
+      "color": "#8d67b4",
+      "comment": "July ICEBEAT campaign: broad mapping only"
+    }
+  ],
+  "legendItems": [
+    {
+      "label": "Purple = analyst mapping of cited historical reporting; not executed or detection coverage.",
+      "color": "#8d67b4"
+    }
+  ],
+  "hideDisabled": false
+}

@@ -1,0 +1,60 @@
+{
+  "mode": "atomic",
+  "count": 2,
+  "started_utc": "2026-11-12T10:36:34.3691842Z",
+  "collector_sha256": "c0a2c5db470bb62e2ae98df9e4a97e4e26a25c8d64b1e53c181c5fc01e00c5cd",
+  "redactions": [
+    "Actual hostname replaced by CTI-LAB-HOST",
+    "Event400 user SID replaced by S-1-0-0",
+    "Run directory in batch command line replaced by <LAB_WORKDIR>",
+    "CLIXML stderr decoded from OEM to UTF-8; User and Computer fields replaced by CTI-LAB-USER and CTI-LAB-HOST"
+  ],
+  "run_id": "2a307100b6f1402c9746768482a35cf1",
+  "provenance": "Actual controlled launches + native Win32_Process snapshots; PowerShell Event 400 corroboration. No Sysmon/4688/4104 claim.",
+  "limitation": "All cases are benign; snapshot collection is scoped to launched PIDs and is not continuous endpoint monitoring.",
+  "finished_utc": "2026-11-12T10:36:45.6438418Z",
+  "cases": [
+    {
+      "exit_code_source": "command_prompt executor, which propagates last child exit status",
+      "exit_code": 0,
+      "source": "actual child execution",
+      "started_utc": "2026-11-12T10:36:34.4003793Z",
+      "pid": 19228,
+      "checked_stdout": "Hello, from PowerShell!",
+      "case_id": "art_powershell",
+      "finished_utc": "2026-11-12T10:36:40.2166393Z",
+      "stderr": "#< CLIXML\n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Подготовка модулей к первому использованию.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD></SD></PR></MS></Obj><Obj S=\"information\" RefId=\"1\"><TN RefId=\"1\"><T>System.Management.Automation.InformationRecord</T><T>System.Object</T></TN><ToString>Hello, from PowerShell!</ToString><Props><Obj N=\"MessageData\" RefId=\"2\"><TN RefId=\"2\"><T>System.Management.Automation.HostInformationMessage</T><T>System.Object</T></TN><ToString>Hello, from PowerShell!</ToString><Props><S N=\"Message\">Hello, from PowerShell!</S><B N=\"NoNewLine\">false</B><S N=\"ForegroundColor\">Gray</S><S N=\"BackgroundColor\">Black</S></Props></Obj><S N=\"Source\">Write-Host</S><DT N=\"TimeGenerated\">2026-11-12T15:36:36.0193616+05:00</DT><Obj N=\"Tags\" RefId=\"3\"><TN RefId=\"3\"><T>System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</T><T>System.Object</T></TN><LST><S>PSHOST</S></LST></Obj><S N=\"User\">CTI-LAB-USER</S><S N=\"Computer\">CTI-LAB-HOST</S><U32 N=\"ProcessId\">19228</U32><U32 N=\"NativeThreadId\">18440</U32><U32 N=\"ManagedThreadId\">7</U32></Props></Obj></Objs>"
+    },
+    {
+      "pid": 19920,
+      "batch_sha256": "7333547fd95e866362b9c33fdd6e5cba1dc7267f64802a6374cd36ff5412774c",
+      "finished_utc": "2026-11-12T10:36:44.5385126Z",
+      "checked_stdout": "not captured for shell-association Start-Process executor",
+      "case_id": "art_batch",
+      "exit_code": 0,
+      "started_utc": "2026-11-12T10:36:40.2235191Z"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art_powershell.stderr.txt",
+      "sha256": "b9c3258a1e07e156967766976bd85826df32d89e590f71e3f740d8e0729408af"
+    },
+    {
+      "path": "art_powershell.stdout.txt",
+      "sha256": "1480fd6116707a023076f1a6b486492d415d0ea3bab094c28017088a0f11009a"
+    },
+    {
+      "path": "atomic-selection.json",
+      "sha256": "537fde7da593c1597d213b65688f162a4224e3282a710a3679bc1f19b1e33853"
+    },
+    {
+      "path": "powershell-event400.xml",
+      "sha256": "c9e14f11483e8b10c9cd394df681563ec6f8029aba736c0ed6d5a549f73e21bb"
+    },
+    {
+      "path": "process-observations.jsonl",
+      "sha256": "49e15aca9d0f0a45b316fd13f16c3837e09958c6d2b42d4b4aba942b99b76d6f"
+    }
+  ]
+}

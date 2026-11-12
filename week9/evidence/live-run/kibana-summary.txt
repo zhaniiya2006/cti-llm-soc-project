@@ -1,0 +1,11 @@
+# week9 - actual benign controls; counts are not malware verdicts
+POST /cti-week9-20261112-103826-bec67e9f/_search?filter_path=aggregations.checks.buckets
+{
+  "size": 0,
+  "aggs": {"checks": {"filters": {"filters": {
+    "baseline": {"match_all":{}},
+    "car_2014_04_003": {"bool":{"filter":[{"term":{"process.name":"powershell.exe"}},{"exists":{"field":"process.parent.name"}}],"must_not":[{"term":{"process.parent.name":"explorer.exe"}},{"term":{"process.parent.name":""}}]}},
+    "encoded_powershell": {"bool":{"filter":[{"term":{"process.name":"powershell.exe"}},{"regexp":{"process.command_line":{"value":".*[-/]([Ee]|[Ee][Nn][Cc]|[Ee][Nn][Cc][Oo][Dd][Ee][Dd][Cc][Oo][Mm][Mm][Aa][Nn][Dd]) +[A-Za-z0-9+/=]+.*"}}}]}},
+    "batch_execution": {"bool":{"filter":[{"term":{"process.name":"cmd.exe"}},{"wildcard":{"process.command_line":{"value":"*T1059.003_script.bat*","case_insensitive":true}}}]}}
+  }}}}
+}

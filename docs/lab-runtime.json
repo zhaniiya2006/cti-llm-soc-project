@@ -1,0 +1,31 @@
+{
+  "recorded_at_utc": "2026-11-12T10:43:27.884519+00:00",
+  "python_version": "3.12.14",
+  "elasticsearch_version": "9.5.6",
+  "kibana_package_version": "9.5.6",
+  "navigator_observed_version": "5.3.2",
+  "elasticsearch_url": "http://127.0.0.1:19200",
+  "kibana_url": "http://127.0.0.1:15601",
+  "transport_binding": "127.0.0.1:19300",
+  "jvm_heap_mib": 384,
+  "kibana_max_old_space_mib": 1536,
+  "deployment": "New portable loopback course lab; no Windows service installation or changes to existing authentication/audit policies",
+  "vendor_sha512_verification": [
+    {
+      "package": "elasticsearch",
+      "url": "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.5.6-windows-x86_64.zip",
+      "expected_sha512": "f08af94813976ec71afb34a14b882c275cdc7e7dbc28c0c1ef1e4db31b48b071f5bd287f66f727800e56d855a88f96dd0c627c735b5ee2718be07c87e695101f",
+      "result": "matched actual downloaded archive before use"
+    },
+    {
+      "package": "kibana",
+      "url": "https://artifacts.elastic.co/downloads/kibana/kibana-9.5.6-windows-x86_64.zip",
+      "expected_sha512": "8893271d0f5b6fc09f8ce9de7671bd671c9239b5cec3989690089bba8953c6e570c920ae76ba4f655d3c937bbb62cd6776b67e9c82d8a51928856d03384694b5",
+      "result": "matched actual downloaded archive before use"
+    }
+  ],
+  "kibana_observed_status": {
+    "level": "available"
+  },
+  "kibana_status_checked_at_utc": "2026-11-12T10:50:15.739262+00:00"
+}

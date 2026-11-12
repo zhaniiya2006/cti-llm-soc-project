@@ -59,6 +59,31 @@
       "path": "week5/images/03-encoded-hidden-live.jpg",
       "kind_and_scope": "interface screenshot: actual Kibana combined query, 1 benign review candidate",
       "sha256": "91e9871128d241d2b5d2250800e39e5cd935f35aa7108a6e8a5bf372a348c791"
+    },
+    {
+      "path": "week6/images/01-navigator-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Navigator 5.3.2 import, PowerShell study layer; not detection coverage",
+      "sha256": "f8c33e8ac5fee76efce026253f1f9090050562e6c10dd69a33f16d3fedabd67a"
+    },
+    {
+      "path": "week7/images/01-car-elastic-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Elasticsearch browser API response, 2 benign CAR matches",
+      "sha256": "d0e34d18aa13858e92528d5e242444c39c05ea67ac8be657965aa2e5c068b01c"
+    },
+    {
+      "path": "week7/images/02-car-kibana-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Kibana Console aggregation, baseline 3 and CAR 2, HTTP 200",
+      "sha256": "bd1206fe533302c1cf152f00564a9ddc0c94f2b4f6070f7676110bf2e4b4c595"
+    },
+    {
+      "path": "week9/images/01-atomic-elastic-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Elasticsearch browser API summary, 2 baseline and 1 per analytic; benign atomic tests",
+      "sha256": "e70d8f616664e6247056d5a1aa8d784f4d6eabf4bb8958f955f44d7ec5de619e"
+    },
+    {
+      "path": "week9/images/02-atomic-kibana-live.jpg",
+      "kind_and_scope": "interface screenshot: actual Kibana Console aggregation, baseline 2 and three analytic counts of 1, HTTP 200",
+      "sha256": "155312e9f19ace041e3a5782829f826ffaf42a9230a995bce420cc910dc7cca4"
     }
   ]
 }

@@ -1,0 +1,80 @@
+<Events>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="PowerShell" />
+      <EventID Qualifiers="0">400</EventID>
+      <Version>0</Version>
+      <Level>4</Level>
+      <Task>4</Task>
+      <Opcode>0</Opcode>
+      <Keywords>0x80000000000000</Keywords>
+      <TimeCreated SystemTime="2026-11-12T10:36:45.9137490Z" />
+      <EventRecordID>7110</EventRecordID>
+      <Correlation />
+      <Execution ProcessID="19788" ThreadID="0" />
+      <Channel>Windows PowerShell</Channel>
+      <Computer>CTI-LAB-HOST</Computer>
+      <Security />
+    </System>
+    <EventData>
+      <Data>Available</Data>
+      <Data>None</Data>
+      <Data>	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.22621.5624
+	HostId=75c051af-9d1e-421b-8710-d43b630dabf7
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -Command Write-Output CTI-CAR-PLAIN; Start-Sleep -Seconds 4
+	EngineVersion=5.1.22621.5624
+	RunspaceId=f2686cf1-0a91-47f2-bbbc-124ec369676c
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="PowerShell" />
+      <EventID Qualifiers="0">400</EventID>
+      <Version>0</Version>
+      <Level>4</Level>
+      <Task>4</Task>
+      <Opcode>0</Opcode>
+      <Keywords>0x80000000000000</Keywords>
+      <TimeCreated SystemTime="2026-11-12T10:36:50.3412297Z" />
+      <EventRecordID>7118</EventRecordID>
+      <Correlation />
+      <Execution ProcessID="15744" ThreadID="0" />
+      <Channel>Windows PowerShell</Channel>
+      <Computer>CTI-LAB-HOST</Computer>
+      <Security />
+    </System>
+    <EventData>
+      <Data>Available</Data>
+      <Data>None</Data>
+      <Data>	NewEngineState=Available
+	PreviousEngineState=None
+
+	SequenceNumber=13
+
+	HostName=ConsoleHost
+	HostVersion=5.1.22621.5624
+	HostId=0ce74af9-d779-4d7c-be4c-b318362740bb
+	HostApplication=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAC0AQwBBAFIALQBFAE4AQwBPAEQARQBEACcAOwAgAFMAdABhAHIAdAAtAFMAbABlAGUAcAAgAC0AUwBlAGMAbwBuAGQAcwAgADQA
+	EngineVersion=5.1.22621.5624
+	RunspaceId=386d03c3-cf9e-46c0-8747-d6facf889231
+	PipelineId=
+	CommandName=
+	CommandType=
+	ScriptName=
+	CommandPath=
+	CommandLine=</Data>
+    </EventData>
+  </Event>
+</Events>
