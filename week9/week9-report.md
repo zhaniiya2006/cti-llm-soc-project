@@ -1,6 +1,6 @@
 # Week 9 - Atomic Red Team tests and Elastic analysis
 
-**Group:** CS-2423 | **Assignment 6, part 1** | **Execution:** 12 November 2026
+**Group:** CS-2423 | **Assignment 6, part 1**
 
 ## 1. Task and test selection
 
