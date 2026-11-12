@@ -1,0 +1,601 @@
+[
+  {
+    "timestamp_utc": "2026-11-12T10:38:24.479841+00:00",
+    "method": "GET",
+    "path": "/",
+    "http_status": 200,
+    "request": null,
+    "response": {
+      "name": "cti-local-node",
+      "cluster_name": "cti-course-lab",
+      "cluster_uuid": "bRv6TtQ2Seiq-xt2DzcJcw",
+      "version": {
+        "number": "9.5.6",
+        "build_flavor": "default",
+        "build_type": "zip",
+        "build_hash": "fd1e8011342a0988e432b999cea4bf884ca120ed",
+        "build_date": "2026-10-28T22:37:54.387301573Z",
+        "build_snapshot": false,
+        "lucene_version": "10.5.2",
+        "minimum_wire_compatibility_version": "8.19.0",
+        "minimum_index_compatibility_version": "8.0.0"
+      },
+      "tagline": "You Know, for Search"
+    }
+  },
+  {
+    "timestamp_utc": "2026-11-12T10:38:25.472370+00:00",
+    "method": "PUT",
+    "path": "/cti-week7-20261112-103824-7de2293d",
+    "http_status": 200,
+    "request": {
+      "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas": 0
+      },
+      "mappings": {
+        "properties": {
+          "@timestamp": {
+            "type": "date"
+          },
+          "process": {
+            "properties": {
+              "name": {
+                "type": "keyword"
+              },
+              "pid": {
+                "type": "long"
+              },
+              "command_line": {
+                "type": "keyword"
+              },
+              "parent": {
+                "properties": {
+                  "name": {
+                    "type": "keyword"
+                  },
+                  "pid": {
+                    "type": "long"
+                  }
+                }
+              }
+            }
+          },
+          "lab": {
+            "properties": {
+              "case_id": {
+                "type": "keyword"
+              },
+              "run_id": {
+                "type": "keyword"
+              },
+              "ground_truth": {
+                "type": "keyword"
+              },
+              "technique": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      }
+    },
+    "response": {
+      "acknowledged": true,
+      "shards_acknowledged": true,
+      "index": "cti-week7-20261112-103824-7de2293d"
+    }
+  },
+  {
+    "timestamp_utc": "2026-11-12T10:38:26.334311+00:00",
+    "method": "POST",
+    "path": "/_bulk?refresh=wait_for",
+    "http_status": 200,
+    "request": "{\"create\": {\"_index\": \"cti-week7-20261112-103824-7de2293d\", \"_id\": \"plain\"}}\n{\"@timestamp\": \"2026-11-12T10:36:45.6650040Z\", \"event\": {\"type\": [\"start\"], \"action\": \"controlled-process-observed\", \"category\": [\"process\"], \"provider\": \"Win32_Process CIM snapshot\", \"kind\": \"event\"}, \"host\": {\"name\": \"CTI-LAB-HOST\"}, \"process\": {\"pid\": 19788, \"command_line\": \"\\\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\\\" -NoProfile -NonInteractive -Command \\\"Write-Output CTI-CAR-PLAIN; Start-Sleep -Seconds 4\\\"\", \"parent\": {\"pid\": 10772, \"name\": \"pwsh.exe\"}, \"name\": \"powershell.exe\"}, \"observation\": {\"source\": \"Get-CimInstance Win32_Process\", \"limitation\": \"Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream\", \"sampled_at_utc\": \"2026-11-12T10:36:45.7616960Z\", \"parent_created_utc\": \"2026-11-12T10:36:33.2744050Z\"}, \"lab\": {\"ground_truth\": \"benign\", \"technique\": \"T1059.001\", \"case_id\": \"plain\", \"run_id\": \"a336a195d95243c082e7152031cf91fb\"}}\n{\"create\": {\"_index\": \"cti-week7-20261112-103824-7de2293d\", \"_id\": \"encoded\"}}\n{\"@timestamp\": \"2026-11-12T10:36:50.0881230Z\", \"event\": {\"type\": [\"start\"], \"action\": \"controlled-process-observed\", \"category\": [\"process\"], \"provider\": \"Win32_Process CIM snapshot\", \"kind\": \"event\"}, \"host\": {\"name\": \"CTI-LAB-HOST\"}, \"process\": {\"pid\": 15744, \"command_line\": \"\\\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\\\" -NoProfile -NonInteractive -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAC0AQwBBAFIALQBFAE4AQwBPAEQARQBEACcAOwAgAFMAdABhAHIAdAAtAFMAbABlAGUAcAAgAC0AUwBlAGMAbwBuAGQAcwAgADQA\", \"parent\": {\"pid\": 10772, \"name\": \"pwsh.exe\"}, \"name\": \"powershell.exe\"}, \"observation\": {\"source\": \"Get-CimInstance Win32_Process\", \"limitation\": \"Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream\", \"sampled_at_utc\": \"2026-11-12T10:36:50.1940615Z\", \"parent_created_utc\": \"2026-11-12T10:36:33.2744050Z\"}, \"lab\": {\"ground_truth\": \"benign\", \"technique\": \"T1059.001\", \"case_id\": \"encoded\", \"run_id\": \"a336a195d95243c082e7152031cf91fb\"}}\n{\"create\": {\"_index\": \"cti-week7-20261112-103824-7de2293d\", \"_id\": \"cmd_control\"}}\n{\"@timestamp\": \"2026-11-12T10:36:54.5239390Z\", \"event\": {\"type\": [\"start\"], \"action\": \"controlled-process-observed\", \"category\": [\"process\"], \"provider\": \"Win32_Process CIM snapshot\", \"kind\": \"event\"}, \"host\": {\"name\": \"CTI-LAB-HOST\"}, \"process\": {\"pid\": 12988, \"command_line\": \"\\\"C:\\\\Windows\\\\System32\\\\cmd.exe\\\" /d /c \\\"echo CTI-CAR-CMD-CONTROL & ping.exe -n 5 127.0.0.1 > nul\\\"\", \"parent\": {\"pid\": 10772, \"name\": \"pwsh.exe\"}, \"name\": \"cmd.exe\"}, \"observation\": {\"source\": \"Get-CimInstance Win32_Process\", \"limitation\": \"Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream\", \"sampled_at_utc\": \"2026-11-12T10:36:54.6387505Z\", \"parent_created_utc\": \"2026-11-12T10:36:33.2744050Z\"}, \"lab\": {\"ground_truth\": \"benign\", \"technique\": \"T1059.003\", \"case_id\": \"cmd_control\", \"run_id\": \"a336a195d95243c082e7152031cf91fb\"}}\n",
+    "response": {
+      "errors": false,
+      "took": 801,
+      "items": [
+        {
+          "create": {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "plain",
+            "_version": 1,
+            "result": "created",
+            "_shards": {
+              "total": 1,
+              "successful": 1,
+              "failed": 0
+            },
+            "_seq_no": 0,
+            "_primary_term": 1,
+            "status": 201
+          }
+        },
+        {
+          "create": {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "encoded",
+            "_version": 1,
+            "result": "created",
+            "_shards": {
+              "total": 1,
+              "successful": 1,
+              "failed": 0
+            },
+            "_seq_no": 1,
+            "_primary_term": 1,
+            "status": 201
+          }
+        },
+        {
+          "create": {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "cmd_control",
+            "_version": 1,
+            "result": "created",
+            "_shards": {
+              "total": 1,
+              "successful": 1,
+              "failed": 0
+            },
+            "_seq_no": 2,
+            "_primary_term": 1,
+            "status": 201
+          }
+        }
+      ]
+    }
+  },
+  {
+    "timestamp_utc": "2026-11-12T10:38:26.342157+00:00",
+    "method": "GET",
+    "path": "/cti-week7-20261112-103824-7de2293d/_mapping",
+    "http_status": 200,
+    "request": null,
+    "response": {
+      "cti-week7-20261112-103824-7de2293d": {
+        "mappings": {
+          "properties": {
+            "@timestamp": {
+              "type": "date"
+            },
+            "event": {
+              "properties": {
+                "action": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "category": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "kind": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "provider": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "type": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "host": {
+              "properties": {
+                "name": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "lab": {
+              "properties": {
+                "case_id": {
+                  "type": "keyword"
+                },
+                "ground_truth": {
+                  "type": "keyword"
+                },
+                "run_id": {
+                  "type": "keyword"
+                },
+                "technique": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "observation": {
+              "properties": {
+                "limitation": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "parent_created_utc": {
+                  "type": "date"
+                },
+                "sampled_at_utc": {
+                  "type": "date"
+                },
+                "source": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "process": {
+              "properties": {
+                "command_line": {
+                  "type": "keyword"
+                },
+                "name": {
+                  "type": "keyword"
+                },
+                "parent": {
+                  "properties": {
+                    "name": {
+                      "type": "keyword"
+                    },
+                    "pid": {
+                      "type": "long"
+                    }
+                  }
+                },
+                "pid": {
+                  "type": "long"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "timestamp_utc": "2026-11-12T10:38:26.354129+00:00",
+    "method": "POST",
+    "path": "/cti-week7-20261112-103824-7de2293d/_search",
+    "http_status": 200,
+    "request": {
+      "size": 100,
+      "track_total_hits": true,
+      "query": {
+        "match_all": {}
+      }
+    },
+    "response": {
+      "took": 3,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 3,
+          "relation": "eq"
+        },
+        "max_score": 1.0,
+        "hits": [
+          {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "plain",
+            "_score": 1.0,
+            "_source": {
+              "@timestamp": "2026-11-12T10:36:45.6650040Z",
+              "event": {
+                "type": [
+                  "start"
+                ],
+                "action": "controlled-process-observed",
+                "category": [
+                  "process"
+                ],
+                "provider": "Win32_Process CIM snapshot",
+                "kind": "event"
+              },
+              "host": {
+                "name": "CTI-LAB-HOST"
+              },
+              "process": {
+                "pid": 19788,
+                "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -NonInteractive -Command \"Write-Output CTI-CAR-PLAIN; Start-Sleep -Seconds 4\"",
+                "parent": {
+                  "pid": 10772,
+                  "name": "pwsh.exe"
+                },
+                "name": "powershell.exe"
+              },
+              "observation": {
+                "source": "Get-CimInstance Win32_Process",
+                "limitation": "Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream",
+                "sampled_at_utc": "2026-11-12T10:36:45.7616960Z",
+                "parent_created_utc": "2026-11-12T10:36:33.2744050Z"
+              },
+              "lab": {
+                "ground_truth": "benign",
+                "technique": "T1059.001",
+                "case_id": "plain",
+                "run_id": "a336a195d95243c082e7152031cf91fb"
+              }
+            }
+          },
+          {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "encoded",
+            "_score": 1.0,
+            "_source": {
+              "@timestamp": "2026-11-12T10:36:50.0881230Z",
+              "event": {
+                "type": [
+                  "start"
+                ],
+                "action": "controlled-process-observed",
+                "category": [
+                  "process"
+                ],
+                "provider": "Win32_Process CIM snapshot",
+                "kind": "event"
+              },
+              "host": {
+                "name": "CTI-LAB-HOST"
+              },
+              "process": {
+                "pid": 15744,
+                "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -NonInteractive -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAC0AQwBBAFIALQBFAE4AQwBPAEQARQBEACcAOwAgAFMAdABhAHIAdAAtAFMAbABlAGUAcAAgAC0AUwBlAGMAbwBuAGQAcwAgADQA",
+                "parent": {
+                  "pid": 10772,
+                  "name": "pwsh.exe"
+                },
+                "name": "powershell.exe"
+              },
+              "observation": {
+                "source": "Get-CimInstance Win32_Process",
+                "limitation": "Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream",
+                "sampled_at_utc": "2026-11-12T10:36:50.1940615Z",
+                "parent_created_utc": "2026-11-12T10:36:33.2744050Z"
+              },
+              "lab": {
+                "ground_truth": "benign",
+                "technique": "T1059.001",
+                "case_id": "encoded",
+                "run_id": "a336a195d95243c082e7152031cf91fb"
+              }
+            }
+          },
+          {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "cmd_control",
+            "_score": 1.0,
+            "_source": {
+              "@timestamp": "2026-11-12T10:36:54.5239390Z",
+              "event": {
+                "type": [
+                  "start"
+                ],
+                "action": "controlled-process-observed",
+                "category": [
+                  "process"
+                ],
+                "provider": "Win32_Process CIM snapshot",
+                "kind": "event"
+              },
+              "host": {
+                "name": "CTI-LAB-HOST"
+              },
+              "process": {
+                "pid": 12988,
+                "command_line": "\"C:\\Windows\\System32\\cmd.exe\" /d /c \"echo CTI-CAR-CMD-CONTROL & ping.exe -n 5 127.0.0.1 > nul\"",
+                "parent": {
+                  "pid": 10772,
+                  "name": "pwsh.exe"
+                },
+                "name": "cmd.exe"
+              },
+              "observation": {
+                "source": "Get-CimInstance Win32_Process",
+                "limitation": "Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream",
+                "sampled_at_utc": "2026-11-12T10:36:54.6387505Z",
+                "parent_created_utc": "2026-11-12T10:36:33.2744050Z"
+              },
+              "lab": {
+                "ground_truth": "benign",
+                "technique": "T1059.003",
+                "case_id": "cmd_control",
+                "run_id": "a336a195d95243c082e7152031cf91fb"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp_utc": "2026-11-12T10:38:26.365855+00:00",
+    "method": "POST",
+    "path": "/cti-week7-20261112-103824-7de2293d/_search",
+    "http_status": 200,
+    "request": {
+      "size": 100,
+      "track_total_hits": true,
+      "query": {
+        "bool": {
+          "filter": [
+            {
+              "term": {
+                "process.name": "powershell.exe"
+              }
+            },
+            {
+              "exists": {
+                "field": "process.parent.name"
+              }
+            }
+          ],
+          "must_not": [
+            {
+              "term": {
+                "process.parent.name": "explorer.exe"
+              }
+            },
+            {
+              "term": {
+                "process.parent.name": ""
+              }
+            }
+          ]
+        }
+      }
+    },
+    "response": {
+      "took": 4,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 2,
+          "relation": "eq"
+        },
+        "max_score": 0.0,
+        "hits": [
+          {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "plain",
+            "_score": 0.0,
+            "_source": {
+              "@timestamp": "2026-11-12T10:36:45.6650040Z",
+              "event": {
+                "type": [
+                  "start"
+                ],
+                "action": "controlled-process-observed",
+                "category": [
+                  "process"
+                ],
+                "provider": "Win32_Process CIM snapshot",
+                "kind": "event"
+              },
+              "host": {
+                "name": "CTI-LAB-HOST"
+              },
+              "process": {
+                "pid": 19788,
+                "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -NonInteractive -Command \"Write-Output CTI-CAR-PLAIN; Start-Sleep -Seconds 4\"",
+                "parent": {
+                  "pid": 10772,
+                  "name": "pwsh.exe"
+                },
+                "name": "powershell.exe"
+              },
+              "observation": {
+                "source": "Get-CimInstance Win32_Process",
+                "limitation": "Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream",
+                "sampled_at_utc": "2026-11-12T10:36:45.7616960Z",
+                "parent_created_utc": "2026-11-12T10:36:33.2744050Z"
+              },
+              "lab": {
+                "ground_truth": "benign",
+                "technique": "T1059.001",
+                "case_id": "plain",
+                "run_id": "a336a195d95243c082e7152031cf91fb"
+              }
+            }
+          },
+          {
+            "_index": "cti-week7-20261112-103824-7de2293d",
+            "_id": "encoded",
+            "_score": 0.0,
+            "_source": {
+              "@timestamp": "2026-11-12T10:36:50.0881230Z",
+              "event": {
+                "type": [
+                  "start"
+                ],
+                "action": "controlled-process-observed",
+                "category": [
+                  "process"
+                ],
+                "provider": "Win32_Process CIM snapshot",
+                "kind": "event"
+              },
+              "host": {
+                "name": "CTI-LAB-HOST"
+              },
+              "process": {
+                "pid": 15744,
+                "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -NonInteractive -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEMAVABJAC0AQwBBAFIALQBFAE4AQwBPAEQARQBEACcAOwAgAFMAdABhAHIAdAAtAFMAbABlAGUAcAAgAC0AUwBlAGMAbwBuAGQAcwAgADQA",
+                "parent": {
+                  "pid": 10772,
+                  "name": "pwsh.exe"
+                },
+                "name": "powershell.exe"
+              },
+              "observation": {
+                "source": "Get-CimInstance Win32_Process",
+                "limitation": "Live process snapshot after controlled launch, not Sysmon/4688 or a fleet-wide process-create stream",
+                "sampled_at_utc": "2026-11-12T10:36:50.1940615Z",
+                "parent_created_utc": "2026-11-12T10:36:33.2744050Z"
+              },
+              "lab": {
+                "ground_truth": "benign",
+                "technique": "T1059.001",
+                "case_id": "encoded",
+                "run_id": "a336a195d95243c082e7152031cf91fb"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+]

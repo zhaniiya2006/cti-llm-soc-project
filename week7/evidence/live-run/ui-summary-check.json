@@ -1,0 +1,62 @@
+{
+  "executed_at_utc": "2026-11-12T10:50:15.671037+00:00",
+  "method": "POST",
+  "path": "/cti-week7-20261112-103824-7de2293d/_search?filter_path=aggregations.checks.buckets",
+  "request": {
+    "size": 0,
+    "aggs": {
+      "checks": {
+        "filters": {
+          "filters": {
+            "baseline": {
+              "match_all": {}
+            },
+            "car_2014_04_003": {
+              "bool": {
+                "filter": [
+                  {
+                    "term": {
+                      "process.name": "powershell.exe"
+                    }
+                  },
+                  {
+                    "exists": {
+                      "field": "process.parent.name"
+                    }
+                  }
+                ],
+                "must_not": [
+                  {
+                    "term": {
+                      "process.parent.name": "explorer.exe"
+                    }
+                  },
+                  {
+                    "term": {
+                      "process.parent.name": ""
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "http_status": 200,
+  "response": {
+    "aggregations": {
+      "checks": {
+        "buckets": {
+          "baseline": {
+            "doc_count": 3
+          },
+          "car_2014_04_003": {
+            "doc_count": 2
+          }
+        }
+      }
+    }
+  }
+}
