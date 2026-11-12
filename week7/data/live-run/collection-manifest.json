@@ -1,0 +1,85 @@
+{
+  "mode": "car",
+  "count": 3,
+  "started_utc": "2026-11-12T10:36:45.6606645Z",
+  "collector_sha256": "c0a2c5db470bb62e2ae98df9e4a97e4e26a25c8d64b1e53c181c5fc01e00c5cd",
+  "redactions": [
+    "Actual hostname replaced by CTI-LAB-HOST",
+    "Event400 user SID replaced by S-1-0-0",
+    "Run directory in batch command line replaced by <LAB_WORKDIR>",
+    "CLIXML stderr decoded from OEM to UTF-8; User and Computer fields replaced by CTI-LAB-USER and CTI-LAB-HOST"
+  ],
+  "run_id": "a336a195d95243c082e7152031cf91fb",
+  "provenance": "Actual controlled launches + native Win32_Process snapshots; PowerShell Event 400 corroboration. No Sysmon/4688/4104 claim.",
+  "limitation": "All cases are benign; snapshot collection is scoped to launched PIDs and is not continuous endpoint monitoring.",
+  "finished_utc": "2026-11-12T10:36:58.8790327Z",
+  "cases": [
+    {
+      "exit_code_source": "launched child",
+      "exit_code": 0,
+      "source": "actual child execution",
+      "started_utc": "2026-11-12T10:36:45.6611227Z",
+      "pid": 19788,
+      "checked_stdout": "CTI-CAR-PLAIN",
+      "case_id": "plain",
+      "finished_utc": "2026-11-12T10:36:50.0816249Z",
+      "stderr": null
+    },
+    {
+      "exit_code_source": "launched child",
+      "exit_code": 0,
+      "source": "actual child execution",
+      "started_utc": "2026-11-12T10:36:50.0840297Z",
+      "pid": 15744,
+      "checked_stdout": "CTI-CAR-ENCODED",
+      "case_id": "encoded",
+      "finished_utc": "2026-11-12T10:36:54.5183611Z",
+      "stderr": "#< CLIXML\n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Подготовка модулей к первому использованию.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD></SD></PR></MS></Obj></Objs>"
+    },
+    {
+      "exit_code_source": "launched child",
+      "exit_code": 0,
+      "source": "actual child execution",
+      "started_utc": "2026-11-12T10:36:54.5188335Z",
+      "pid": 12988,
+      "checked_stdout": "CTI-CAR-CMD-CONTROL",
+      "case_id": "cmd_control",
+      "finished_utc": "2026-11-12T10:36:58.6935297Z",
+      "stderr": null
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "cmd_control.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cmd_control.stdout.txt",
+      "sha256": "dcf10102501c26a8985ee6eb5b35a53d52ed4031524a3145a5774534b9932588"
+    },
+    {
+      "path": "encoded.stderr.txt",
+      "sha256": "01cb7ed5922003ac396a0c6ac75ac941079775d78fdfc32ad39972b9a560f70b"
+    },
+    {
+      "path": "encoded.stdout.txt",
+      "sha256": "de873a8667eb5b77a75c852d002f9452c47377ba94442884651c583e534bbcbb"
+    },
+    {
+      "path": "plain.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "plain.stdout.txt",
+      "sha256": "ecd952c9eb281d2626a18bc7e240e3c69803ee94020543f2d2cc32901b79f860"
+    },
+    {
+      "path": "powershell-event400.xml",
+      "sha256": "deede4fa7452e5efb5cc5e59f54429dbcaf44fd034dcd6cc9dec63f79832844a"
+    },
+    {
+      "path": "process-observations.jsonl",
+      "sha256": "71be928ed247122c444ea58f33c331e6b774608c22f2965dd86b4ec91a0e1cb7"
+    }
+  ]
+}
