@@ -1,0 +1,86 @@
+{
+  "baseline": {
+    "size": 100,
+    "track_total_hits": true,
+    "query": {
+      "match_all": {}
+    }
+  },
+  "car_2014_04_003": {
+    "size": 100,
+    "track_total_hits": true,
+    "query": {
+      "bool": {
+        "filter": [
+          {
+            "term": {
+              "process.name": "powershell.exe"
+            }
+          },
+          {
+            "exists": {
+              "field": "process.parent.name"
+            }
+          }
+        ],
+        "must_not": [
+          {
+            "term": {
+              "process.parent.name": "explorer.exe"
+            }
+          },
+          {
+            "term": {
+              "process.parent.name": ""
+            }
+          }
+        ]
+      }
+    }
+  },
+  "encoded_powershell": {
+    "size": 100,
+    "track_total_hits": true,
+    "query": {
+      "bool": {
+        "filter": [
+          {
+            "term": {
+              "process.name": "powershell.exe"
+            }
+          },
+          {
+            "regexp": {
+              "process.command_line": {
+                "value": ".*[-/]([Ee]|[Ee][Nn][Cc]|[Ee][Nn][Cc][Oo][Dd][Ee][Dd][Cc][Oo][Mm][Mm][Aa][Nn][Dd]) +[A-Za-z0-9+/=]+.*"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "batch_execution": {
+    "size": 100,
+    "track_total_hits": true,
+    "query": {
+      "bool": {
+        "filter": [
+          {
+            "term": {
+              "process.name": "cmd.exe"
+            }
+          },
+          {
+            "wildcard": {
+              "process.command_line": {
+                "value": "*T1059.003_script.bat*",
+                "case_insensitive": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
