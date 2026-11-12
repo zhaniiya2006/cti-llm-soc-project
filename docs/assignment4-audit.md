@@ -1,6 +1,6 @@
 # Assignment 4 review against syllabus section 3.3
 
-Reviewed baseline: GitHub main `12f2a62` (27 October 2026). Review and new lab work: 12 November 2026. Only the supplied syllabus and assignment descriptions were available; LMS-specific additional rubrics were not accessible through the public links.
+Reviewed baseline: GitHub main `12f2a62` (27 October 2026). Only the supplied syllabus and assignment descriptions were available; LMS-specific additional rubrics were not accessible through the public links.
 
 | Requirement | What existed | Review result and completion |
 |---|---|---|

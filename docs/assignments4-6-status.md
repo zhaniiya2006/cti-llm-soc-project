@@ -1,6 +1,6 @@
 # Assignments 4-6 - requirement and evidence index
 
-Prepared on 12 November 2026. Reports follow the repository's existing week folders and English working language.
+Reports follow the repository's existing week folders and English working language.
 
 | Assignment | Syllabus weeks | Main deliverables | Evidence/status |
 |---|---|---|---|
