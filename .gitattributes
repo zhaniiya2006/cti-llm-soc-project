@@ -4,3 +4,9 @@ week5/data/powershell-events.jsonl -text
 week5/collect_lab_events.ps1 -text
 week5/hunt-queries.json -text
 week2/data/dns/example-com-*.json -text
+# Keep the bytes referenced by the new collection/result manifests unchanged on checkout.
+tools/collect_training.ps1 -text
+week7/data/live-run/** -text whitespace=cr-at-eol,-blank-at-eol
+week9/data/live-run/** -text whitespace=cr-at-eol,-blank-at-eol
+week7/evidence/live-run/** -text whitespace=cr-at-eol
+week9/evidence/live-run/** -text whitespace=cr-at-eol
