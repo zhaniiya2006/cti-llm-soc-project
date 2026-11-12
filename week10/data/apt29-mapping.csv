@@ -1,0 +1,7 @@
+source_section,observation_paraphrase,technique_id,tactic,mapping_status,source_url,publication_date
+March 2023 Türkiye campaign,Phishing links to hosted payloads,T1566.002,initial-access,direct analyst mapping,https://cloud.google.com/blog/topics/threat-intelligence/apt29-evolving-diplomatic-phishing,2023-09-21
+Evolving Approach to Malware Delivery,HTML assembly and delivery of content,T1027.006,stealth,direct analyst mapping,https://cloud.google.com/blog/topics/threat-intelligence/apt29-evolving-diplomatic-phishing,2023-09-21
+Evolving Approach to Malware Delivery,User opens shortcut or binary,T1204.002,execution,direct analyst mapping,https://cloud.google.com/blog/topics/threat-intelligence/apt29-evolving-diplomatic-phishing,2023-09-21
+March/European campaigns,Conditional user-agent/IP delivery,T1480,stealth,cautious analyst inference,https://cloud.google.com/blog/topics/threat-intelligence/apt29-evolving-diplomatic-phishing,2023-09-21
+Second-stage downloader discussion,Follow-on payload retrieval,T1105,command-and-control,direct analyst mapping,https://cloud.google.com/blog/topics/threat-intelligence/apt29-evolving-diplomatic-phishing,2023-09-21
+July ICEBEAT campaign,Legitimate service used for control,T1102,command-and-control,broad mapping only,https://cloud.google.com/blog/topics/threat-intelligence/apt29-evolving-diplomatic-phishing,2023-09-21
