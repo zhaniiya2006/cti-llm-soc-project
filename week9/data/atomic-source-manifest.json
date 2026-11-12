@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "technique": "T1059.001",
+      "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/59ea87397c5faf8cad1e6ebe36fd625d0063e894/atomics/T1059.001/T1059.001.yaml",
+      "git_blob_sha": "62d74ec9d49490fac276a1d5b02c56c045194898",
+      "commit": "59ea87397c5faf8cad1e6ebe36fd625d0063e894"
+    },
+    {
+      "technique": "T1059.003",
+      "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/59ea87397c5faf8cad1e6ebe36fd625d0063e894/atomics/T1059.003/T1059.003.yaml",
+      "git_blob_sha": "5f9f9daefa584710cb40f149cc2788b49c201bca",
+      "commit": "59ea87397c5faf8cad1e6ebe36fd625d0063e894"
+    }
+  ]
+}
