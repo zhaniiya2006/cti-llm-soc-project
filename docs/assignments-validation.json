@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-11-12T10:54:38.843113+00:00",
+  "counts": {
+    "week7": {
+      "baseline": 3,
+      "car_2014_04_003": 2
+    },
+    "week9": {
+      "baseline": 2,
+      "car_2014_04_003": 1,
+      "encoded_powershell": 1,
+      "batch_execution": 1
+    }
+  },
+  "checks": [
+    "native child/parent/timestamp provenance",
+    "Event400 PID corroboration",
+    "collector and artifact SHA-256",
+    "bulk source equality",
+    "actual query/response/count consistency",
+    "Atomic input and cleanup",
+    "Navigator envelope and no numerical coverage claims",
+    "APT source locators",
+    "separate synthetic boundary controls",
+    "published text identity scan"
+  ],
+  "failures": [],
+  "status": "passed"
+}
